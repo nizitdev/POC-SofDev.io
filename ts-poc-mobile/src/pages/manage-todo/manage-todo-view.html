@@ -1,0 +1,28 @@
+<div class="manage-todo">
+    <v-ons-page>
+        <v-ons-toolbar>
+            <div class="center">{{operation}}</div>
+        </v-ons-toolbar>
+        
+        <v-ons-list>
+            <v-ons-list-header>Title</v-ons-list-header>
+            <v-ons-list-item>
+                <v-ons-input type="text" v-model="title"></v-ons-input>
+            </v-ons-list-item>
+            
+            <v-ons-list-header>Description</v-ons-list-header>
+            <v-ons-list-item>
+                <textarea class="textarea textarea--transparent" rows="3" v-model="description"></textarea>
+            </v-ons-list-item>
+        </v-ons-list>
+        
+        <v-ons-bottom-toolbar>
+            <div class="center">
+                <v-ons-button v-on:click.prevent="save">Save</v-ons-button>
+                <router-link to="/todos">
+                    <v-ons-button modifier="quiet">Cancel</v-ons-button>
+                </router-link>
+            </div>
+        </v-ons-bottom-toolbar>
+    </v-ons-page>
+</div>
