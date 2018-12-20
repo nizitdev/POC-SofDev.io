@@ -1,0 +1,26 @@
+<div class="list-contacts-view">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="searchPanel">
+         
+                 
+            <div class="contact-container">
+
+            <div class="columns"> 
+                    <input  class="input searchText" type="text" v-model="searchText" placeholder="Search">
+                    <button class="button is-link" v-on:click.prevent="search">Search</button>
+                    </div>
+                <div class="pullRight">
+                    <router-link to="/manageContact" class="button is-primary">Create contact</router-link>
+                </div>
+                          
+            </div>
+            
+        </div>
+    
+    </nav>
+    
+    <div class="contact-container">
+        
+        <contact v-for="contact in contacts" v-bind:key="contact.id" v-bind:value="contact"></contact>
+    </div>
+</div>

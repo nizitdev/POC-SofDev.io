@@ -1,0 +1,42 @@
+<div class="manage-contact-view">
+    <h1 class="title">
+        {{operation}}
+    </h1>
+    
+    <form>
+        <div class="field">
+            <label class="label">FirstName</label>
+            <div class="control">
+                <input class="input" type="text" v-model="firstName" placeholder="FirstName">
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">lastName</label>
+            <div class="control">
+                <input class="input" type="text" v-model="lastName" placeholder="lastName"> 
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Phone No</label>
+            <div class="control">
+                <input class="input" type="text" v-model="phoneNo" placeholder="phoneNo"> 
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">email</label>
+            <div class="control">
+                <input class="input" type="text" v-model="email" placeholder="email"> 
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" v-on:click.prevent="save">Save</button>
+            </div>
+            <div class="control">
+                <router-link class="button is-text" to="/contacts">Cancel</router-link>
+            </div>
+        </div>
+    </form>
+</div>
