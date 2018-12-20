@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/client/components/contact/contact-view.html":
+/*!*********************************************************!*\
+  !*** ./src/client/components/contact/contact-view.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"contact-view\" v-if=\"!todo.isDeleted\">\n    <div class=\"card\">\n        <header class=\"card-header\">\n            <p class=\"card-header-title\">\n                {{contact.firstName}}\n            </p>\n            <div class=\"card-header-icon\" aria-label=\"more options\">\n                <span class=\"icon\">\n                    <i class=\"material-icons\">done</i>\n                </span>\n            </div>\n        </header>\n        <div class=\"card-content\">\n            <div class=\"content\">\n                {{contact.lastName}}\n            </div>\n        </div>\n        <footer class=\"card-footer\"> \n            <a href=\"#\" class=\"card-footer-item\" v-on:click.prevent=\"editContact\">Edit</a>\n            <a href=\"#\" class=\"card-footer-item\" v-on:click.prevent=\"deleteContact\">Delete</a>\n        </footer>\n    </div>\n</div>";
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvY2xpZW50L2NvbXBvbmVudHMvY29udGFjdC9jb250YWN0LXZpZXcuaHRtbCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQSwwTUFBME0sbUJBQW1CLDRWQUE0VixrQkFBa0IsOFQiLCJmaWxlIjoibWFpbi4wZjAzMmY5NmQ3ZjBhMmZkMDA2OC5ob3QtdXBkYXRlLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSBcIjxkaXYgY2xhc3M9XFxcImNvbnRhY3Qtdmlld1xcXCIgdi1pZj1cXFwiIXRvZG8uaXNEZWxldGVkXFxcIj5cXG4gICAgPGRpdiBjbGFzcz1cXFwiY2FyZFxcXCI+XFxuICAgICAgICA8aGVhZGVyIGNsYXNzPVxcXCJjYXJkLWhlYWRlclxcXCI+XFxuICAgICAgICAgICAgPHAgY2xhc3M9XFxcImNhcmQtaGVhZGVyLXRpdGxlXFxcIj5cXG4gICAgICAgICAgICAgICAge3tjb250YWN0LmZpcnN0TmFtZX19XFxuICAgICAgICAgICAgPC9wPlxcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XFxcImNhcmQtaGVhZGVyLWljb25cXFwiIGFyaWEtbGFiZWw9XFxcIm1vcmUgb3B0aW9uc1xcXCI+XFxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVxcXCJpY29uXFxcIj5cXG4gICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPVxcXCJtYXRlcmlhbC1pY29uc1xcXCI+ZG9uZTwvaT5cXG4gICAgICAgICAgICAgICAgPC9zcGFuPlxcbiAgICAgICAgICAgIDwvZGl2PlxcbiAgICAgICAgPC9oZWFkZXI+XFxuICAgICAgICA8ZGl2IGNsYXNzPVxcXCJjYXJkLWNvbnRlbnRcXFwiPlxcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XFxcImNvbnRlbnRcXFwiPlxcbiAgICAgICAgICAgICAgICB7e2NvbnRhY3QubGFzdE5hbWV9fVxcbiAgICAgICAgICAgIDwvZGl2PlxcbiAgICAgICAgPC9kaXY+XFxuICAgICAgICA8Zm9vdGVyIGNsYXNzPVxcXCJjYXJkLWZvb3RlclxcXCI+IFxcbiAgICAgICAgICAgIDxhIGhyZWY9XFxcIiNcXFwiIGNsYXNzPVxcXCJjYXJkLWZvb3Rlci1pdGVtXFxcIiB2LW9uOmNsaWNrLnByZXZlbnQ9XFxcImVkaXRDb250YWN0XFxcIj5FZGl0PC9hPlxcbiAgICAgICAgICAgIDxhIGhyZWY9XFxcIiNcXFwiIGNsYXNzPVxcXCJjYXJkLWZvb3Rlci1pdGVtXFxcIiB2LW9uOmNsaWNrLnByZXZlbnQ9XFxcImRlbGV0ZUNvbnRhY3RcXFwiPkRlbGV0ZTwvYT5cXG4gICAgICAgIDwvZm9vdGVyPlxcbiAgICA8L2Rpdj5cXG48L2Rpdj5cIjsiXSwic291cmNlUm9vdCI6IiJ9

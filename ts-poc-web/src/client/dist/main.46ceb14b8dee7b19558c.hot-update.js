@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/client/pages/list-contacts/list-contact-view.html":
+/*!***************************************************************!*\
+  !*** ./src/client/pages/list-contacts/list-contact-view.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"list-contacts-view\">\n    <nav class=\"navbar\" role=\"navigation\" aria-label=\"main navigation\">\n           <div class=\"columns\">\n                 \n            \n                    <input  class=\"input\" type=\"text\" v-model=\"searchText\" placeholder=\"Search\">\n                    <button class=\"button is-link\" v-on:click.prevent=\"search\">Search</button>\n                 \n            </div>\n            \n         \n        <div class=\"navbar-brand\">\n            <router-link to=\"/manageContact\" class=\"button is-primary create-todo-button\">Create contact</router-link>\n        </div>\n    </nav>\n    \n    <div class=\"todo-container\">\n        <contact v-for=\"contact in contacts\" v-bind:key=\"contact.id\" v-bind:value=\"contact\"></contact>\n    </div>\n</div>";
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvY2xpZW50L3BhZ2VzL2xpc3QtY29udGFjdHMvbGlzdC1jb250YWN0LXZpZXcuaHRtbCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQSxrMEIiLCJmaWxlIjoibWFpbi40NmNlYjE0YjhkZWU3YjE5NTU4Yy5ob3QtdXBkYXRlLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSBcIjxkaXYgY2xhc3M9XFxcImxpc3QtY29udGFjdHMtdmlld1xcXCI+XFxuICAgIDxuYXYgY2xhc3M9XFxcIm5hdmJhclxcXCIgcm9sZT1cXFwibmF2aWdhdGlvblxcXCIgYXJpYS1sYWJlbD1cXFwibWFpbiBuYXZpZ2F0aW9uXFxcIj5cXG4gICAgICAgICAgIDxkaXYgY2xhc3M9XFxcImNvbHVtbnNcXFwiPlxcbiAgICAgICAgICAgICAgICAgXFxuICAgICAgICAgICAgXFxuICAgICAgICAgICAgICAgICAgICA8aW5wdXQgIGNsYXNzPVxcXCJpbnB1dFxcXCIgdHlwZT1cXFwidGV4dFxcXCIgdi1tb2RlbD1cXFwic2VhcmNoVGV4dFxcXCIgcGxhY2Vob2xkZXI9XFxcIlNlYXJjaFxcXCI+XFxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPVxcXCJidXR0b24gaXMtbGlua1xcXCIgdi1vbjpjbGljay5wcmV2ZW50PVxcXCJzZWFyY2hcXFwiPlNlYXJjaDwvYnV0dG9uPlxcbiAgICAgICAgICAgICAgICAgXFxuICAgICAgICAgICAgPC9kaXY+XFxuICAgICAgICAgICAgXFxuICAgICAgICAgXFxuICAgICAgICA8ZGl2IGNsYXNzPVxcXCJuYXZiYXItYnJhbmRcXFwiPlxcbiAgICAgICAgICAgIDxyb3V0ZXItbGluayB0bz1cXFwiL21hbmFnZUNvbnRhY3RcXFwiIGNsYXNzPVxcXCJidXR0b24gaXMtcHJpbWFyeSBjcmVhdGUtdG9kby1idXR0b25cXFwiPkNyZWF0ZSBjb250YWN0PC9yb3V0ZXItbGluaz5cXG4gICAgICAgIDwvZGl2PlxcbiAgICA8L25hdj5cXG4gICAgXFxuICAgIDxkaXYgY2xhc3M9XFxcInRvZG8tY29udGFpbmVyXFxcIj5cXG4gICAgICAgIDxjb250YWN0IHYtZm9yPVxcXCJjb250YWN0IGluIGNvbnRhY3RzXFxcIiB2LWJpbmQ6a2V5PVxcXCJjb250YWN0LmlkXFxcIiB2LWJpbmQ6dmFsdWU9XFxcImNvbnRhY3RcXFwiPjwvY29udGFjdD5cXG4gICAgPC9kaXY+XFxuPC9kaXY+XCI7Il0sInNvdXJjZVJvb3QiOiIifQ==
