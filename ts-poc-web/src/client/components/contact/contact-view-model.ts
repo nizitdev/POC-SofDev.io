@@ -2,7 +2,7 @@ import { ComponentViewModel, template, element, bind, NavigationService } from "
 import "./contact-view.scss";
 import { Contact } from "../../models/contact";
 import { inject } from "@nivinjoseph/n-ject";
-import { ContactService } from "../../services/todo/contact-service";
+import { ContactService } from "../../services/contact/contact-service";
 import { given } from "@nivinjoseph/n-defensive";
 import * as Routes from "../../pages/routes";
 

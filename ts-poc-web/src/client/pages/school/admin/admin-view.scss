@@ -1,0 +1,30 @@
+.list-contacts-view
+{
+    padding: 50px;
+    
+   
+    
+    .contact-container
+    {
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: space-evenly;
+    }
+    .searchText{
+        width: 500px;
+    }
+    // .searchPanel{
+    //     width: 100%;
+    //     text-align: center;
+    //     padding: 50px;
+    //     border: 1px turquoise solid;
+    // }
+.searchPanel{
+    border: 1px #c1d8d6 solid;
+    padding: 10px;
+    }
+    .pullRight{
+        width:300px;
+        text-align: right;
+    }
+}

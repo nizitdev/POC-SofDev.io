@@ -4,7 +4,7 @@ import "./list-contact-view.scss";
 import { inject } from "@nivinjoseph/n-ject";
 import { given } from "@nivinjoseph/n-defensive";
 import { Contact } from "../../models/contact";
-import { ContactService } from "../../services/todo/contact-service";
+import { ContactService } from "../../services/contact/contact-service";
 
 
 @template(require("./list-contact-view.html"))

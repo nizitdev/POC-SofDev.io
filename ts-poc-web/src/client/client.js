@@ -13,8 +13,8 @@ const client = new n_app_1.ClientApp("#app")
     .useAccentColor("#93C5FC")
     .registerComponents(...components_1.components)
     .registerPages(...pages_1.pages)
-    .useAsInitialRoute(Routes.listContacts)
-    .useAsUnknownRoute(Routes.listTodos)
+    .useAsInitialRoute(Routes.adminPage)
+    .useAsUnknownRoute(Routes.listContacts)
     .useHistoryModeRouting();
 client.bootstrap();
 //# sourceMappingURL=client.js.map

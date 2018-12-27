@@ -2,7 +2,7 @@ import { PageViewModel, template, route, NavigationService } from "@nivinjoseph/
 import * as Routes from "../routes";
 import "./manage-contact-view.scss";
 import { inject } from "@nivinjoseph/n-ject";
-import { ContactService } from "../../services/todo/contact-service";
+import { ContactService } from "../../services/contact/contact-service";
 import { given } from "@nivinjoseph/n-defensive";
 
 

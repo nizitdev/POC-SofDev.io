@@ -25,13 +25,9 @@ class LocalContactService {
         n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
         return Promise.resolve(this._contact.find(t => t.id === id));
     }
-    public searchContacts(text: string): Promise<ReadonlyArray<Contact>>
-    {
-        given(text, "text").ensureHasValue().ensureIsString();
-
-        return Promise.resolve(this._contact.filter(
-            t => t.firstName.includes(text) || t.lastName.includes(text) ||
-                t.phoneNo.includes(text) || t.email.includes(text)));
+    searchContacts(text) {
+        n_defensive_1.given(text, "text").ensureHasValue().ensureIsString();
+        return Promise.resolve(this._contact.filter(t => t.firstName === text));
     }
     createContact(firstName, lastName, phoneNo, email) {
         const contact = {
