@@ -1,0 +1,29 @@
+<div class="teacher-view" v-if="!teacher.isDeleted">
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                {{teacher.firstName}}
+            </p>
+            <div class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <i class="material-icons">done</i>
+                </span>
+            </div>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                {{teacher.lastName}}
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                {{teacher.dateOfBirth}}
+            </div>
+        </div>
+        <footer class="card-footer"> 
+            
+            <a href="#" class="card-footer-item" v-on:click.prevent="editTeacher">Edit</a>
+            <a href="#" class="card-footer-item" v-on:click.prevent="deleteTeacher">Delete</a>
+        </footer>
+    </div>
+</div>

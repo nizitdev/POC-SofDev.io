@@ -39,7 +39,7 @@ let TodoViewModel = class TodoViewModel extends n_app_1.ComponentViewModel {
 };
 TodoViewModel = __decorate([
     n_app_1.template(require("./todo-view.html")),
-    n_app_1.element("todo"),
+    n_app_1.element("todoElement"),
     n_app_1.bind("value"),
     n_ject_1.inject("TodoService", "NavigationService"),
     __metadata("design:paramtypes", [Object, Object])

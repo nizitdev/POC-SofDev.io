@@ -1,0 +1,13 @@
+<div class="list-teacher-view">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <router-link to="/manageTeacher" class="button is-primary create-teacher-button">Create teacher</router-link>
+        </div>
+    </nav>
+    
+    <div class="teacher-container">
+        <teacherElement v-for="item in teachers" v-bind:key="item.id" v-bind:value="item"></teacherElement>
+    </div>
+
+   
+</div>

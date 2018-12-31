@@ -7,15 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = require("@nivinjoseph/n-app");
-require("./admin-view.scss");
-const n_ject_1 = require("@nivinjoseph/n-ject");
+require("../admin/admin-view.scss");
 const Routes = require("../../routes");
 let ListAdminViewModel = class ListAdminViewModel extends n_app_1.PageViewModel {
 };
 ListAdminViewModel = __decorate([
     n_app_1.template(require("../admin/admin-view.html")),
-    n_app_1.route(Routes.adminPage),
-    n_ject_1.inject("")
+    n_app_1.route(Routes.adminPage)
 ], ListAdminViewModel);
 exports.ListAdminViewModel = ListAdminViewModel;
 //# sourceMappingURL=admin-view-model.js.map

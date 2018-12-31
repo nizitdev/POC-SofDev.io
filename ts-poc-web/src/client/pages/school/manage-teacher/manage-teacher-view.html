@@ -1,0 +1,49 @@
+<div class="manage-teacher-view">
+    <h1 class="title">
+        {{operation}}
+    </h1>
+    
+    <form>
+        <div class="field">
+            <label class="label">FirstName</label>
+            <div class="control">
+                <input class="input" type="text" v-model="firstName" placeholder="FirstName">
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">lastName</label>
+            <div class="control">
+                <input class="input" type="text" v-model="lastName" value="lastName" placeholder="lastName"> 
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Address</label>
+            <div class="control">
+                <input class="input" type="text" v-model="address" placeholder="address"> 
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">sex</label>
+            <div class="control">
+                <input class="input" type="text" v-model="sex" placeholder="sex"> 
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Date of Birth</label>
+            <div class="control">
+                <input class="input" type="text" v-model="dateOfBirth" placeholder="Date of Birth"> 
+            </div>
+        </div>
+        
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" v-on:click.prevent="save">Save</button>
+            </div>
+            <div class="control">
+                <router-link class="button is-text" to="/listTeacher">Cancel</router-link>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,1 @@
+{"version":3,"file":"teacher.js","sourceRoot":"","sources":["teacher.ts"],"names":[],"mappings":"","sourcesContent":["export interface Teacher\r\n{\r\n    id: string;\r\n    firstName: string;\r\n    lastName: string;\r\n    dateOfBirth: string;\r\n    sex: string;\r\n    address: string;\r\n    isDeleted: boolean;\r\n  \r\n} \r\n"]}

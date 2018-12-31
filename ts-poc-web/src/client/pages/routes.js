@@ -5,4 +5,6 @@ exports.manageTodo = "/manage?{id?:string}";
 exports.listContacts = "/contacts";
 exports.manageContact = "/manageContact?{id?:string}";
 exports.adminPage = "/admin_layout";
+exports.listTeachers = "/listTeacher";
+exports.manageTeacher = "/manageTeacher?{id?:string}";
 //# sourceMappingURL=routes.js.map

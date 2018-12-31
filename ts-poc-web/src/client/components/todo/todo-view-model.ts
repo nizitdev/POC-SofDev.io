@@ -8,7 +8,7 @@ import * as Routes from "../../pages/routes";
 
 
 @template(require("./todo-view.html"))
-@element("todo")
+@element("todoElement")
 @bind("value") 
 @inject("TodoService", "NavigationService")
 export class TodoViewModel extends ComponentViewModel

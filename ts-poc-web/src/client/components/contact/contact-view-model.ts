@@ -9,40 +9,32 @@ import * as Routes from "../../pages/routes";
 
 @template(require("./contact-view.html"))
 @element("contact")
-@bind("value") 
+@bind("value")
 @inject("ContactService", "NavigationService")
-export class ContactViewModel extends ComponentViewModel
-{
+export class ContactViewModel extends ComponentViewModel {
     private readonly _contactService: ContactService;
     private readonly _navigationService: NavigationService;
-    
-    
+
+
     public get contact(): Contact { return this.getBound<Contact>("value"); }
-    
-    
-    public constructor(contactService: ContactService, navigationService: NavigationService)
-    {
+
+
+    public constructor(contactService: ContactService, navigationService: NavigationService) {
         super();
         given(contactService, "contactService").ensureHasValue().ensureIsObject();
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
         this._contactService = contactService;
         this._navigationService = navigationService;
     }
-    
-    public editContact(): void
-    {
+
+    public editContact(): void {
         this._navigationService.navigate(Routes.manageContact, { id: this.contact.id });
     }
-    
-   
-    
-     
-    
-    public deleteContact(): void
-    {
+ 
+    public deleteContact(): void {
         this._contactService.deleteContact(this.contact.id)
             .then(() => this.contact.isDeleted = true)
             .catch(e => console.log(e));
     }
-    
+
 }
