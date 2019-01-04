@@ -1,1 +1,1 @@
-{"version":3,"file":"division.js","sourceRoot":"","sources":["division.ts"],"names":[],"mappings":"","sourcesContent":["export interface Division\r\n{\r\n    id: string;\r\n    name: string;\r\n  \r\n}"]}
+{"version":3,"file":"division.js","sourceRoot":"","sources":["division.ts"],"names":[],"mappings":"","sourcesContent":["export interface Division\r\n{\r\n    id: number;\r\n    name: string;\r\n  \r\n}"]}

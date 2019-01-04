@@ -21,6 +21,7 @@ class LocalTodoService {
         return Promise.resolve(this._todos);
     }
     getTodo(id) {
+        debugger;
         n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
         return Promise.resolve(this._todos.find(t => t.id === id));
     }

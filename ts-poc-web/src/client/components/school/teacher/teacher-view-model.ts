@@ -34,8 +34,7 @@ export class TeacherViewModel extends ComponentViewModel
     
     
     public editTeacher(): void
-    {
-        debugger;
+    { 
         this._navigationService.navigate(Routes.manageTeacher , { 
             id: this.teacher.id });
     }

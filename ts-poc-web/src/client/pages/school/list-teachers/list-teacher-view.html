@@ -4,7 +4,13 @@
             <router-link to="/manageTeacher" class="button is-primary create-teacher-button">Create teacher</router-link>
         </div>
     </nav>
-    
+    <div> 
+        <select >
+            <option v-for="item in teachers" :value="item" :key="item.id">
+              {{ item.name }}
+            </option>
+          </select> 
+    </div>
     <div class="teacher-container">
         <teacherElement v-for="item in teachers" v-bind:key="item.id" v-bind:value="item"></teacherElement>
     </div>

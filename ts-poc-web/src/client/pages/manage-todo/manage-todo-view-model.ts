@@ -17,7 +17,7 @@ export class ManageTodoViewModel extends PageViewModel
     private _id: string | null;
     private _title: string;
     private _description: string;
-
+    
     
     public get operation(): string { return this._operation; }
 
@@ -60,7 +60,7 @@ export class ManageTodoViewModel extends PageViewModel
         if (id && !id.isEmptyOrWhiteSpace())
         {
             this._operation = "Update";
-            
+            debugger;
             this._todoService.getTodo(id)
                 .then(t =>
                 {

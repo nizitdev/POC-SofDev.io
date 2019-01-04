@@ -25,7 +25,6 @@ let TeacherViewModel = class TeacherViewModel extends n_app_1.ComponentViewModel
         return this.getBound("value");
     }
     editTeacher() {
-        debugger;
         this._navigationService.navigate(Routes.manageTeacher, {
             id: this.teacher.id
         });

@@ -1,6 +1,6 @@
 export interface Division
 {
-    id: string;
+    id: number;
     name: string;
   
 }

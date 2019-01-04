@@ -1,11 +1,11 @@
+import { given } from "@nivinjoseph/n-defensive";
 import { TeacherService } from "../teacher/teacher-service";
 import { User } from "../../../models/school/user";
-import { given } from "@nivinjoseph/n-defensive";
 
 
 export class LocalTeacherService implements TeacherService {
     private readonly _teacher: Array<User>;
-   // private _counter: number;
+    private _counter: number;
 
 
     public constructor() {
@@ -17,7 +17,7 @@ export class LocalTeacherService implements TeacherService {
                 id: "id" + i,
                 name: "teacher" + i,
                 userName: "" + i,
-                IsAdmin: true,
+                isAdmin: false,
                 classInCharge: null,
                 password : "12345678",
                 isDeleted: false
@@ -25,7 +25,7 @@ export class LocalTeacherService implements TeacherService {
         }
 
         this._teacher = teacher;
-      //  this._counter = count;
+         this._counter = count;
     }
 
 
@@ -34,49 +34,51 @@ export class LocalTeacherService implements TeacherService {
     }
 
     public getTeacher(id: string): Promise<User> {
+        debugger;
         given(id, "id").ensureHasValue().ensureIsString();
 
         return Promise.resolve(this._teacher.find(t => t.id === id));
     }
+    
 
-    // public createTeacher(firstName: string, lastName: string, dateOfBirth: string, sex: string, address: string): Promise<Teacher> {
-    //     given(firstName, "firstName").ensureHasValue().ensureIsString();
-    //     given(lastName, "lastName").ensureIsString();
-    //     given(dateOfBirth, "dateOfBirth").ensureHasValue().ensureIsString();
-    //     given(sex, "sex").ensureIsString();
-    //     given(address, "address").ensureIsString();
+    public createTeacher(name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string): Promise<User> {
+     debugger;
+        given(name, "name").ensureHasValue().ensureIsString();
+        given(isAdmin, "isAdmin").ensureIsBoolean();
+        given(password, "password").ensureHasValue().ensureIsString();
+        given(userName, "userName").ensureHasValue().ensureIsString();
+        given(classInCharge, "classInCharge").ensureIsString();
+        const teacher: User = {
+            id: "id" + this._counter,
+            name: name,
+            isAdmin: isAdmin,
+            password: password,
+            userName: userName,
+            isDeleted: false,
+            classInCharge: classInCharge
+        };
 
-    //     const teacher: Teacher = {
-    //         id: "id" + this._counter,
-    //         address: address,
-    //         dateOfBirth: dateOfBirth,
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         sex: sex,
-    //         isDeleted: false
-    //     };
+        this._teacher.push(teacher);
+        return Promise.resolve(teacher);
+    }
 
-    //     this._teacher.push(teacher);
-    //     return Promise.resolve(teacher);
-    // }
+    public updateTeacher(id: string, name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string): Promise<void> {
+        given(id, "id").ensureHasValue().ensureIsString();
+        given(name, "name").ensureHasValue().ensureIsString();
+        given(isAdmin, "isAdmin").ensureIsBoolean();
+        given(password, "password").ensureHasValue().ensureIsString();
+        given(userName, "userName").ensureHasValue().ensureIsString();
+        given(classInCharge, "classInCharge").ensureIsString();
+         
+        const teacher = this._teacher.find(t => t.id === id);
+        teacher.name = name;
+        teacher.isAdmin = isAdmin;
+        teacher.password = password;
+        teacher.userName = userName;
+        teacher.classInCharge = classInCharge;
 
-    // public updateTeacher(id: string, firstName: string, lastName: string, dateOfBirth: string, sex: string, address: string): Promise<void> {
-    //     given(id, "id").ensureHasValue().ensureIsString();
-    //     given(firstName, "firstName").ensureHasValue().ensureIsString();
-    //     given(lastName, "lastName").ensureIsString();
-    //     given(dateOfBirth, "dateOfBirth").ensureHasValue().ensureIsString();
-    //     given(sex, "sex").ensureIsString();
-    //     given(address, "address").ensureIsString();
-
-    //     const teacher = this._teacher.find(t => t.id === id);
-    //     teacher.firstName = firstName;
-    //     teacher.lastName = lastName;
-    //     teacher.dateOfBirth = dateOfBirth;
-    //     teacher.address = address;
-    //     teacher.sex = sex;
-
-    //     return Promise.resolve();
-    // }
+        return Promise.resolve();
+    }
 
      
     // public deleteTeacher(id: string): Promise<void> {

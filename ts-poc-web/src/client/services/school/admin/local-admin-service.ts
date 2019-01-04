@@ -38,7 +38,7 @@ export class LocalAdminService implements AdminService
                 users.push({
                     id: "id" + i,
                     name: "name" + i,
-                    IsAdmin: true,
+                    isAdmin: true,
                     userName: "admin",
                     password: "admin", 
                     classInCharge : null,
@@ -49,7 +49,7 @@ export class LocalAdminService implements AdminService
                     users.push({
                         id: "id" + i,
                         name: "name" + i,
-                        IsAdmin: false,
+                        isAdmin: false,
                         userName: "Nivya",
                         password: "12345678", 
                         classInCharge : null,

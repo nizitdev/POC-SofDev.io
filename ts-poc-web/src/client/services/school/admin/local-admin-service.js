@@ -19,7 +19,7 @@ class LocalAdminService {
                 users.push({
                     id: "id" + i,
                     name: "name" + i,
-                    IsAdmin: true,
+                    isAdmin: true,
                     userName: "admin",
                     password: "admin",
                     classInCharge: null,
@@ -29,7 +29,7 @@ class LocalAdminService {
                     users.push({
                         id: "id" + i,
                         name: "name" + i,
-                        IsAdmin: false,
+                        isAdmin: false,
                         userName: "Nivya",
                         password: "12345678",
                         classInCharge: null,
