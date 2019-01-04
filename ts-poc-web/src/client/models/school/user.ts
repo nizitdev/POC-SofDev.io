@@ -2,9 +2,9 @@ export interface User
 {
     id: string;
     name: string;
-    IsAdmin: boolean;
+    isAdmin: boolean;
     userName: string;
     password: string;
-    classInCharge: Readonly<string>;
+    classInCharge: string;
     isDeleted: boolean;
 } 
