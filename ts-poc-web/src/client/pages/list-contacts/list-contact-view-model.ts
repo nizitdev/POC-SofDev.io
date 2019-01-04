@@ -37,6 +37,7 @@ export class ListContactViewModel extends PageViewModel
     }
     protected onEnter(): void
     {
+    
         this._contactService.getContacts()
             .then(t => this._contacts = t)
             .catch(e => console.log(e));

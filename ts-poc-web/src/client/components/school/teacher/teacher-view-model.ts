@@ -2,7 +2,7 @@ import { ComponentViewModel, template, element, bind, NavigationService } from "
 import { given } from "@nivinjoseph/n-defensive";
 import { inject } from "@nivinjoseph/n-ject";
 import { TeacherService } from "../../../services/school/teacher/teacher-service";
-import { Teacher } from "../../../models/school/teacher";
+import { User } from "../../../models/school/user";
 import * as Routes from "../../../pages/routes";
 import "./teacher-view.scss";
 
@@ -13,14 +13,14 @@ import "./teacher-view.scss";
 @inject("TeacherService", "NavigationService")
 export class TeacherViewModel extends ComponentViewModel
 {
-    private readonly _teacherService: TeacherService;
+   // private readonly _teacherService: TeacherService;
     private readonly _navigationService: NavigationService;
     
     // private teacher : Teacher;
     
-    public get teacher(): Teacher {
+    public get teacher(): User {
       
-     return this.getBound<Teacher>("value"); 
+     return this.getBound<User>("value"); 
     }
     
     public constructor(teacherService: TeacherService, navigationService: NavigationService)
@@ -28,7 +28,7 @@ export class TeacherViewModel extends ComponentViewModel
         super();
         given(teacherService, "teacherService").ensureHasValue().ensureIsObject();
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        this._teacherService = teacherService;
+       // this._teacherService = teacherService;
         this._navigationService = navigationService;
     }
     
@@ -40,10 +40,10 @@ export class TeacherViewModel extends ComponentViewModel
             id: this.teacher.id });
     }
     
-    public deleteTeacher(): void
-    {
-        this._teacherService.deleteTeacher(this.teacher.id)
-            .then(() => this.teacher.isDeleted = true)
-            .catch(e => console.log(e));
-    }
+    // public deleteTeacher(): void
+    // {
+    //     this._teacherService.deleteTeacher(this.teacher.id)
+    //         .then(() => this.teacher.isDeleted = true)
+    //         .catch(e => console.log(e));
+    // }
 }

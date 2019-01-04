@@ -2,41 +2,40 @@
     <h1 class="title">
         {{operation}}
     </h1>
-    
+
     <form>
         <div class="field">
-            <label class="label">FirstName</label>
+            <label class="label">Name</label>
             <div class="control">
-                <input class="input" type="text" v-model="firstName" placeholder="FirstName">
-            </div>
-        </div>
-        
-        <div class="field">
-            <label class="label">lastName</label>
-            <div class="control">
-                <input class="input" type="text" v-model="lastName" value="lastName" placeholder="lastName"> 
-            </div>
-        </div>
-        
-        <div class="field">
-            <label class="label">Address</label>
-            <div class="control">
-                <input class="input" type="text" v-model="address" placeholder="address"> 
+                <input class="input" type="text" v-model="name" placeholder="Name">
             </div>
         </div>
         <div class="field">
-            <label class="label">sex</label>
+            <label class="label">UserName</label>
             <div class="control">
-                <input class="input" type="text" v-model="sex" placeholder="sex"> 
+                <input class="input" type="text" v-model="userName" placeholder="UserName">
             </div>
         </div>
         <div class="field">
-            <label class="label">Date of Birth</label>
+            <label class="label">Password</label>
             <div class="control">
-                <input class="input" type="text" v-model="dateOfBirth" placeholder="Date of Birth"> 
+                <input class="input" type="password" v-model="password" placeholder="Password">
             </div>
         </div>
-        
+        <div  > 
+            <select v-model="selected">
+                <option v-for="item in divisions" :value="item" :key="item.id">
+                  {{ item.name }}
+                </option>
+              </select> 
+        </div>
+        <div class="field">
+            <label class="label"></label>
+            <div class="control">
+                Is Active: <input class="checkbox" type="checkbox" v-model="isAdmin">
+            </div>
+        </div>
+
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-link" v-on:click.prevent="save">Save</button>

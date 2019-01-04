@@ -4,7 +4,7 @@ import "./list-teacher-view.scss";
 import { inject } from "@nivinjoseph/n-ject";
 import { TeacherService } from "../../../services/school/teacher/teacher-service";
 import { given } from "@nivinjoseph/n-defensive";
-import { Teacher } from "../../../models/school/teacher";
+import { User } from "../../../models/school/user";
 
 @template(require("./list-teacher-view.html"))
 @route(Routes.listTeachers)
@@ -12,12 +12,14 @@ import { Teacher } from "../../../models/school/teacher";
 export class ListTeachersViewModel extends PageViewModel
 {
     private readonly _teacherService: TeacherService;
-    private _teachers:  ReadonlyArray<Teacher>;
+    private _teachers:  ReadonlyArray<User>;
      
-    public get teachers(): ReadonlyArray<Teacher> { 
+     
+    public get teachers(): ReadonlyArray<User> { 
         return this._teachers; }
      
-    
+      
+         
     public constructor(teacherService: TeacherService)
     {
         super();

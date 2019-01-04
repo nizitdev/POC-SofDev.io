@@ -14,7 +14,7 @@ const client = new ClientApp("#app")
     .registerComponents(...components)
     .registerPages(...pages)
     .useAsInitialRoute(Routes.adminPage)
-    .useAsUnknownRoute(Routes.listContacts)
+    .useAsUnknownRoute(Routes.listTeachers)
     .useHistoryModeRouting();
 
 client.bootstrap();

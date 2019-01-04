@@ -3,8 +3,8 @@ import { ManageTodoViewModel } from "./manage-todo/manage-todo-view-model";
 import { ListContactViewModel } from "./list-contacts/list-contact-view-model";
 import { ManageContactViewModel } from "./manage-contact/manage-contact-view-model";
 import { ListAdminViewModel } from "./school/admin/admin-view-model";
-import { ListTeachersViewModel } from "./school/list-teachers/list-teacher-view-model";
-import { ManageTeacherViewModel } from "./school/manage-teacher/manage-teacher-view-model";
+ import { ListTeachersViewModel } from "./school/list-teachers/list-teacher-view-model";
+  import { ManageTeacherViewModel } from "./school/manage-teacher/manage-teacher-view-model";
   
 export const pages: Array<Function> = [
     ListTodosViewModel,
@@ -13,7 +13,7 @@ export const pages: Array<Function> = [
     ListContactViewModel,
     ListAdminViewModel,
     ListTeachersViewModel,
-    ManageTeacherViewModel
+   ManageTeacherViewModel
 ];
 
  

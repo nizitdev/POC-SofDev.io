@@ -14,65 +14,39 @@ const Routes = require("../../routes");
 require("./manage-teacher-view.scss");
 const n_ject_1 = require("@nivinjoseph/n-ject");
 const n_defensive_1 = require("@nivinjoseph/n-defensive");
-let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageViewModel {
-    constructor(teacherService, navigationService) {
+let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.ComponentViewModel {
+    constructor(teacherService) {
         super();
         n_defensive_1.given(teacherService, " teacherService").ensureHasValue().ensureIsObject();
-        n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        this._teacherService = teacherService;
-        this._navigationService = navigationService;
+        this._divisions = [];
         this._operation = "";
-        this._id = null;
-        this._firstName = "";
-        this._lastName = "";
-        this._sex = "";
-        this._address = "";
-        this._dateOfBirth = "";
+        this._name = "";
+        this._isAdmin = false;
+        this._password = "";
+        this._userName = "";
+    }
+    get division() {
+        return this.getBound("value");
+    }
+    get divisions() {
+        return this._divisions;
     }
     get operation() { return this._operation; }
-    get firstName() { return this._firstName; }
-    set firstName(value) { this._firstName = value; }
-    get lastName() { return this._lastName; }
-    set lastName(value) { this._lastName = value; }
-    get sex() { return this._sex; }
-    set sex(value) { this._sex = value; }
-    get dateOfBirth() { return this._dateOfBirth; }
-    set dateOfBirth(value) { this._dateOfBirth = value; }
-    get address() { return this._address; }
-    set address(value) { this._address = value; }
-    save() {
-        debugger;
-        const savePromise = this._id
-            ? this._teacherService.updateTeacher(this._id, this._firstName, this._lastName, this._dateOfBirth, this._sex, this._address)
-            : this._teacherService.createTeacher(this._firstName, this._lastName, this._dateOfBirth, this._sex, this._address);
-        savePromise
-            .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
-            .catch(e => console.log(e));
-    }
-    onEnter(id) {
-        if (id && !id.isEmptyOrWhiteSpace()) {
-            this._operation = "Update";
-            this._teacherService.getTeacher(id)
-                .then(t => {
-                this._id = t.id;
-                this._firstName = t.firstName;
-                this._lastName = t.lastName;
-                this._address = t.address;
-                this._sex = t.sex;
-                this._dateOfBirth = t.dateOfBirth;
-            })
-                .catch(e => console.log(e));
-        }
-        else {
-            this._operation = "Add";
-        }
-    }
+    get name() { return this._name; }
+    set name(value) { this._name = value; }
+    get isAdmin() { return this._isAdmin; }
+    set isAdmin(value) { this._isAdmin = value; }
+    get userName() { return this._userName; }
+    set userName(value) { this._userName = value; }
+    get password() { return this._password; }
+    set password(value) { this._password = value; }
 };
 ManageTeacherViewModel = __decorate([
     n_app_1.template(require("./manage-teacher-view.html")),
     n_app_1.route(Routes.manageTeacher),
+    n_app_1.bind("value"),
     n_ject_1.inject("TeacherService", "NavigationService"),
-    __metadata("design:paramtypes", [Object, Object])
+    __metadata("design:paramtypes", [Object])
 ], ManageTeacherViewModel);
 exports.ManageTeacherViewModel = ManageTeacherViewModel;
 //# sourceMappingURL=manage-teacher-view-model.js.map

@@ -19,7 +19,6 @@ let TeacherViewModel = class TeacherViewModel extends n_app_1.ComponentViewModel
         super();
         n_defensive_1.given(teacherService, "teacherService").ensureHasValue().ensureIsObject();
         n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        this._teacherService = teacherService;
         this._navigationService = navigationService;
     }
     get teacher() {
@@ -30,11 +29,6 @@ let TeacherViewModel = class TeacherViewModel extends n_app_1.ComponentViewModel
         this._navigationService.navigate(Routes.manageTeacher, {
             id: this.teacher.id
         });
-    }
-    deleteTeacher() {
-        this._teacherService.deleteTeacher(this.teacher.id)
-            .then(() => this.teacher.isDeleted = true)
-            .catch(e => console.log(e));
     }
 };
 TeacherViewModel = __decorate([
