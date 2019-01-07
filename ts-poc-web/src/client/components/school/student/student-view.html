@@ -1,25 +1,22 @@
-<div class="teacher-view">
-        <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    {{teacher.name}}
-                </p>
-               
-            </header>
-            <div class="card-content">
-                <div class="content">
-                    {{teacher.sex}}
-                </div>
+<table class="table is-fullwidth">
+
+    <tr>
+        <td class="table-row-active-background-color">
+            {{student.name}}
+        </td>
+        <td class="table-row-active-background-color">
+            {{student.sex}}
+        </td>
+        <td class="table-row-active-background-color">
+            {{student.division}}
+        </td>
+        <td>
+            <div class="buttons are-medium">
+                <a href="#" class="button is-primary" v-on:click.prevent="editStudent">Edit</a>
+                <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>
             </div>
-            <div class="card-content">
-                    <div class="content">
-                        {{teacher.}}
-                    </div>
-                </div>
-            <footer class="card-footer"> 
-                
-                <a href="#" class="card-footer-item btnEdit" v-on:click.prevent="editTeacher">Edit</a>
-                <a href="#" class="card-footer-item" v-on:click.prevent="deleteTeacher">Delete</a>
-            </footer>
-        </div>
-    </div>
+
+        </td>
+
+    </tr>
+</table>

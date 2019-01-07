@@ -1,6 +1,6 @@
-import {PageViewModel , template, route, NavigationService} from "@nivinjoseph/n-app";
+import { PageViewModel, template, route, NavigationService } from "@nivinjoseph/n-app";
 
-import "../admin/admin-view.scss"; 
+import "../admin/admin-view.scss";
 import * as Routes from "../../routes";
 import { AdminService } from "../../../services/school/admin/admin-service";
 import { User } from "../../../models/school/user";
@@ -11,41 +11,46 @@ import { inject } from "@nivinjoseph/n-ject";
 @route(Routes.adminPage)
 // @inject("")    
 @inject("AdminService", "NavigationService")
-export class ListAdminViewModel extends PageViewModel
-{
-   
-    
+export class ListAdminViewModel extends PageViewModel {
+
     private _userName: string;
     private _password: string;
     private readonly _adminService: AdminService;
     private readonly _navigationService: NavigationService;
-    private _user:  ReadonlyArray<User>;
+    private _user: User;
     public get userName(): string { return this._userName; }
     public set userName(value: string) { this._userName = value; }
     public get password(): string { return this._password; }
     public set password(value: string) { this._password = value; }
 
-    public get users(): ReadonlyArray<User> { return this._user; }
-    public constructor(adminService: AdminService, navigationService: NavigationService)
-    {
+    public get user(): User { return this._user; }
+    public constructor(adminService: AdminService, navigationService: NavigationService) {
         super();
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        
+
         this._navigationService = navigationService;
         given(adminService, "adminService").ensureHasValue().ensureIsObject();
         this._adminService = adminService;
-        this._user = [];
-    }
- 
-    
-    public  login(isAdmin?: boolean): void
-    { 
-       if (isAdmin) {
 
-       }
-           this._adminService.login(this.userName, this.password)
-             .then(t => this._user = t  )
-               .then(() => this._navigationService.navigate(Routes.listTeachers, {})).catch(e => console.log(e));
-              
+    }
+
+
+    public login(): void {
+        let that = this;
+        this._adminService.login(this.userName, this.password)
+            .then(function (result) {
+                if (result.isAdmin === true) {
+                    that._navigationService.navigate(Routes.listTeachers, {});
+                }
+                else {
+
+                    that._navigationService.navigate(Routes.listStudents, {});
+                }
+            }, function (e) {
+                // handle errors here
+                console.log(e);
+            });
+
+
     }
 }

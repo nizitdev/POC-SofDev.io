@@ -34,6 +34,7 @@ export class LocalAdminService implements AdminService
         
         for (let i = 0; i < count; i++)
         {
+            debugger;
             if (i === 0) {
                 users.push({
                     id: "id" + i,
@@ -44,7 +45,7 @@ export class LocalAdminService implements AdminService
                     classInCharge : null,
                     isDeleted: false
                 });
-    
+            }
                 if (i !== 0) {
                     users.push({
                         id: "id" + i,
@@ -52,12 +53,12 @@ export class LocalAdminService implements AdminService
                         isAdmin: false,
                         userName: "Nivya",
                         password: "12345678", 
-                        classInCharge : null,
+                        classInCharge : "x-a",
                         isDeleted: false
                     });
             }
             }
-        }
+        
         
         this._user = users;
        // this._counter = count;
@@ -66,14 +67,17 @@ export class LocalAdminService implements AdminService
     public getDivisions(): Promise<ReadonlyArray<Division>> {
         return Promise.resolve(this._division);
     }
-
-    
-    public login(userName: string, password: string): Promise<ReadonlyArray<User>>
+    public getUsers(): Promise<ReadonlyArray<User>> {
+        return Promise.resolve(this._user);
+    }
+     
+    public login(userName: string, password: string): Promise<User>
     {
         given(userName, "userName").ensureHasValue().ensureIsString();
         given(password, "password").ensureHasValue().ensureIsString();
-
-        return Promise.resolve(this._user.filter(t => t.userName === userName && t.password === password));
+        debugger;
+ let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
+        return Promise.resolve(user);
     }
    
     

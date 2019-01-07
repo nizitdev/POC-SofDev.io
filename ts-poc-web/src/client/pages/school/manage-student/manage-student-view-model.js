@@ -44,7 +44,7 @@ let ManageStudentViewModel = class ManageStudentViewModel extends n_app_1.PageVi
             ? this._studentService.updateStudent(this._id, this._name, this._sex, this._division)
             : this._studentService.createStudent(this._name, this._sex, this._division);
         savePromise
-            .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
+            .then(() => this._navigationService.navigate(Routes.listStudents, {}))
             .catch(e => console.log(e));
     }
     onEnter(id) {
@@ -69,7 +69,7 @@ let ManageStudentViewModel = class ManageStudentViewModel extends n_app_1.PageVi
 };
 ManageStudentViewModel = __decorate([
     n_app_1.template(require("./manage-student-view.html")),
-    n_app_1.route(Routes.manageTeacher),
+    n_app_1.route(Routes.manageStudent),
     n_ject_1.inject("StudentService", "NavigationService", "AdminService"),
     __metadata("design:paramtypes", [Object, Object, Object])
 ], ManageStudentViewModel);

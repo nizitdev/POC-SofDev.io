@@ -5,6 +5,16 @@ class LocalTeacherService {
     constructor() {
         const teacher = new Array();
         const count = 10;
+        const subject = new Array();
+        subject.push({
+            id: "1",
+            name: "Maths",
+        });
+        subject.push({
+            id: "2",
+            name: "English",
+        });
+        this._subject = subject;
         for (let i = 0; i < count; i++) {
             teacher.push({
                 id: "id" + i,
@@ -21,6 +31,9 @@ class LocalTeacherService {
     }
     getTeachers() {
         return Promise.resolve(this._teacher);
+    }
+    getSubjects() {
+        return Promise.resolve(this._subject);
     }
     getTeacher(id) {
         debugger;

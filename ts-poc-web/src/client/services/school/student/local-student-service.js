@@ -10,7 +10,7 @@ class LocalStudentService {
                 id: "id" + i,
                 name: "Student" + i,
                 division: "x-a",
-                sex: "male",
+                sex: "Male",
                 isDeleted: false
             });
         }

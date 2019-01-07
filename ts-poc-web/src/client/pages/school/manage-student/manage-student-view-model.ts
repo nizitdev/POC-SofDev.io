@@ -9,7 +9,7 @@ import { AdminService } from "../../../services/school/admin/admin-service";
 
 
 @template(require("./manage-student-view.html"))
-@route(Routes.manageTeacher)
+@route(Routes.manageStudent)
 @inject("StudentService", "NavigationService", "AdminService")
 export class ManageStudentViewModel extends PageViewModel {
 
@@ -64,7 +64,7 @@ export class ManageStudentViewModel extends PageViewModel {
             : this._studentService.createStudent(this._name, this._sex, this._division);
             
         savePromise
-            .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
+            .then(() => this._navigationService.navigate(Routes.listStudents, {}))
             .catch(e => console.log(e));
     }
 

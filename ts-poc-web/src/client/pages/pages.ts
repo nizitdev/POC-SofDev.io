@@ -6,6 +6,7 @@ import { ListAdminViewModel } from "./school/admin/admin-view-model";
  import { ListTeachersViewModel } from "./school/list-teachers/list-teacher-view-model";
   import { ManageTeacherViewModel } from "./school/manage-teacher/manage-teacher-view-model";
    import { ListStudentViewModel } from "./school/list-students/list-student-view-model";
+import { ManageStudentViewModel } from "./school/manage-student/manage-student-view-model";
   
 export const pages: Array<Function> = [
     ListTodosViewModel,
@@ -16,6 +17,7 @@ export const pages: Array<Function> = [
     ListTeachersViewModel,
    ManageTeacherViewModel,
    ListStudentViewModel,
+   ManageStudentViewModel
 ];
 
  

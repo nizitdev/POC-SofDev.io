@@ -17,7 +17,7 @@ export class LocalStudentService implements StudentService {
                 id: "id" + i,
                 name: "Student" + i,
                division: "x-a",
-               sex: "male",
+               sex: "Male",
                isDeleted: false
             });
         }

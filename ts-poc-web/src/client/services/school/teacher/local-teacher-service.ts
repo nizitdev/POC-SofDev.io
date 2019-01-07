@@ -1,17 +1,30 @@
 import { given } from "@nivinjoseph/n-defensive";
 import { TeacherService } from "../teacher/teacher-service";
 import { User } from "../../../models/school/user";
+import { Subject } from "../../../models/school/subject";
 
 
 export class LocalTeacherService implements TeacherService {
     private readonly _teacher: Array<User>;
     private _counter: number;
-
+ 
+    private readonly _subject: Array<Subject>;
 
     public constructor() {
         const teacher = new Array<User>();
         const count = 10;
-
+      
+        const subject =  new Array<Subject>();
+        
+            subject.push({
+                id: "1" ,
+                name: "Maths",
+            });
+            subject.push({
+                id: "2" ,
+                name: "English",
+            });
+            this._subject = subject;
         for (let i = 0; i < count; i++) {
             teacher.push({
                 id: "id" + i,
@@ -28,9 +41,11 @@ export class LocalTeacherService implements TeacherService {
          this._counter = count;
     }
 
-
-    public getTeachers(): Promise<ReadonlyArray<User>> {
+  public getTeachers(): Promise<ReadonlyArray<User>> {
         return Promise.resolve(this._teacher);
+    }
+   public getSubjects(): Promise<ReadonlyArray<Subject>> {
+        return Promise.resolve(this._subject);
     }
 
     public getTeacher(id: string): Promise<User> {

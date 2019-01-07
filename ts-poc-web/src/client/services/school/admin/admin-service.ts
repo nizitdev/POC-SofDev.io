@@ -3,7 +3,7 @@ import { Division } from "../../../models/school/division";
 
 export interface AdminService
 {
-    login(userName: string, password: string): Promise<ReadonlyArray<User>>;
-   
+    login(userName: string, password: string): Promise<User>    ;
+    getUsers(): Promise<ReadonlyArray<User>>;
     getDivisions(): Promise<ReadonlyArray<Division>>;
 }
