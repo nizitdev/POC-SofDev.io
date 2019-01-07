@@ -16,7 +16,7 @@ export class LocalTeacherService implements TeacherService {
             teacher.push({
                 id: "id" + i,
                 name: "teacher" + i,
-                userName: "" + i,
+                userName: "UserName" + i,
                 isAdmin: false,
                 classInCharge: null,
                 password : "12345678",

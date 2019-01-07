@@ -5,6 +5,7 @@ import { ManageContactViewModel } from "./manage-contact/manage-contact-view-mod
 import { ListAdminViewModel } from "./school/admin/admin-view-model";
  import { ListTeachersViewModel } from "./school/list-teachers/list-teacher-view-model";
   import { ManageTeacherViewModel } from "./school/manage-teacher/manage-teacher-view-model";
+   import { ListStudentViewModel } from "./school/list-students/list-student-view-model";
   
 export const pages: Array<Function> = [
     ListTodosViewModel,
@@ -13,7 +14,8 @@ export const pages: Array<Function> = [
     ListContactViewModel,
     ListAdminViewModel,
     ListTeachersViewModel,
-   ManageTeacherViewModel
+   ManageTeacherViewModel,
+   ListStudentViewModel,
 ];
 
  

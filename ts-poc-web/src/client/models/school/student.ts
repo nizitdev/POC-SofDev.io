@@ -1,11 +1,9 @@
 export interface Student
 {
     id: string;
-    firstName: string;
-    lastName: string;
-    dateOfBirth: string;
+    name: string;
     sex: string;
-    address: string;
+    division: string;
     isDeleted: boolean;
   
 }

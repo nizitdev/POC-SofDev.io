@@ -42,9 +42,7 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
     set userName(value) { this._userName = value; }
     get password() { return this._password; }
     set password(value) { this._password = value; }
-    get classInCharge() {
-        return this._classInCharge;
-    }
+    get classInCharge() { return this._classInCharge; }
     set classInCharge(value) { this._classInCharge = value; }
     save() {
         debugger;

@@ -36,9 +36,13 @@ export class ListAdminViewModel extends PageViewModel
         this._adminService = adminService;
         this._user = [];
     }
-    public  login(): void
+ 
+    
+    public  login(isAdmin?: boolean): void
     { 
-       
+       if (isAdmin) {
+
+       }
            this._adminService.login(this.userName, this.password)
              .then(t => this._user = t  )
                .then(() => this._navigationService.navigate(Routes.listTeachers, {})).catch(e => console.log(e));

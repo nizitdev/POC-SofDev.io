@@ -22,7 +22,7 @@ export class LocalAdminService implements AdminService
         for (let i = 0; i < divCount; i++)
         {
             divisions.push({
-                    id: "id" + i,
+                    id:  "id" + i,
                     name: "div" + i,
                     
                 });

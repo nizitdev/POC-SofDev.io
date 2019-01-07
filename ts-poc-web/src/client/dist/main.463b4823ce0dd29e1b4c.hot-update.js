@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/client/pages/school/list-teachers/list-teacher-view.html":
+/*!**********************************************************************!*\
+  !*** ./src/client/pages/school/list-teachers/list-teacher-view.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"list-teacher-view\">\r\n    <nav class=\"navbar\" role=\"navigation\" aria-label=\"main navigation\">\r\n        <div class=\"navbar-brand\">\r\n            <router-link to=\"/manageTeacher\" class=\"button is-primary create-teacher-button\">Create teacher</router-link>\r\n        </div>\r\n    </nav>\r\n\r\n    <table class=\"table is-fullwidth\">\r\n        <tr>\r\n            <td class=\"table-row-active-background-color is-primary\">\r\n                Name \r\n            </td>\r\n           \r\n            \r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                <div class=\"todo-container\">\r\n                    <teacherElement v-for=\"item in teachers\" v-bind:key=\"item.id\" v-bind:value=\"item\"></teacherElement>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n\r\n\r\n    </table>\r\n</div>";
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvY2xpZW50L3BhZ2VzL3NjaG9vbC9saXN0LXRlYWNoZXJzL2xpc3QtdGVhY2hlci12aWV3Lmh0bWwiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUEsaTNCIiwiZmlsZSI6Im1haW4uNDYzYjQ4MjNjZTBkZDI5ZTFiNGMuaG90LXVwZGF0ZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCI8ZGl2IGNsYXNzPVxcXCJsaXN0LXRlYWNoZXItdmlld1xcXCI+XFxyXFxuICAgIDxuYXYgY2xhc3M9XFxcIm5hdmJhclxcXCIgcm9sZT1cXFwibmF2aWdhdGlvblxcXCIgYXJpYS1sYWJlbD1cXFwibWFpbiBuYXZpZ2F0aW9uXFxcIj5cXHJcXG4gICAgICAgIDxkaXYgY2xhc3M9XFxcIm5hdmJhci1icmFuZFxcXCI+XFxyXFxuICAgICAgICAgICAgPHJvdXRlci1saW5rIHRvPVxcXCIvbWFuYWdlVGVhY2hlclxcXCIgY2xhc3M9XFxcImJ1dHRvbiBpcy1wcmltYXJ5IGNyZWF0ZS10ZWFjaGVyLWJ1dHRvblxcXCI+Q3JlYXRlIHRlYWNoZXI8L3JvdXRlci1saW5rPlxcclxcbiAgICAgICAgPC9kaXY+XFxyXFxuICAgIDwvbmF2PlxcclxcblxcclxcbiAgICA8dGFibGUgY2xhc3M9XFxcInRhYmxlIGlzLWZ1bGx3aWR0aFxcXCI+XFxyXFxuICAgICAgICA8dHI+XFxyXFxuICAgICAgICAgICAgPHRkIGNsYXNzPVxcXCJ0YWJsZS1yb3ctYWN0aXZlLWJhY2tncm91bmQtY29sb3IgaXMtcHJpbWFyeVxcXCI+XFxyXFxuICAgICAgICAgICAgICAgIE5hbWUgXFxyXFxuICAgICAgICAgICAgPC90ZD5cXHJcXG4gICAgICAgICAgIFxcclxcbiAgICAgICAgICAgIFxcclxcbiAgICAgICAgPC90cj5cXHJcXG4gICAgICAgIDx0cj5cXHJcXG4gICAgICAgICAgICA8dGQ+XFxyXFxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XFxcInRvZG8tY29udGFpbmVyXFxcIj5cXHJcXG4gICAgICAgICAgICAgICAgICAgIDx0ZWFjaGVyRWxlbWVudCB2LWZvcj1cXFwiaXRlbSBpbiB0ZWFjaGVyc1xcXCIgdi1iaW5kOmtleT1cXFwiaXRlbS5pZFxcXCIgdi1iaW5kOnZhbHVlPVxcXCJpdGVtXFxcIj48L3RlYWNoZXJFbGVtZW50PlxcclxcbiAgICAgICAgICAgICAgICA8L2Rpdj5cXHJcXG4gICAgICAgICAgICA8L3RkPlxcclxcbiAgICAgICAgPC90cj5cXHJcXG5cXHJcXG5cXHJcXG4gICAgPC90YWJsZT5cXHJcXG48L2Rpdj5cIjsiXSwic291cmNlUm9vdCI6IiJ9

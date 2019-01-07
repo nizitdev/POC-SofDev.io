@@ -42,10 +42,8 @@ export class ManageTeacherViewModel extends PageViewModel {
     public get password(): string { return this._password; }
     public set password(value: string) { this._password = value; }
 
-    public get  classInCharge(): string {  
-         return this._classInCharge; 
-     
-        }
+    public get  classInCharge(): string {  return this._classInCharge; }
+
     public set  classInCharge(value:   string ) { this._classInCharge = value; } 
 
     public constructor(teacherService: TeacherService, navigationService: NavigationService, adminService: AdminService,  ) {

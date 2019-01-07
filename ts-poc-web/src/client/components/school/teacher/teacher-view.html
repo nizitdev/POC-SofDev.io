@@ -1,8 +1,8 @@
-<div class="teacher-view">
+<!-- <div class="teacher-view">
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">
-                {{teacher.name}}
+               
             </p>
             <div class="card-header-icon" aria-label="more options">
                 <span class="icon">
@@ -17,8 +17,28 @@
         </div>
         <footer class="card-footer"> 
             
-            <a href="#" class="card-footer-item" v-on:click.prevent="editTeacher">Edit</a>
+            <a href="#" class="card-footer-item btnEdit" v-on:click.prevent="editTeacher">Edit</a>
             <a href="#" class="card-footer-item" v-on:click.prevent="deleteTeacher">Delete</a>
         </footer>
     </div>
-</div>
+</div> -->
+
+<table class="table is-fullwidth">
+       
+        <tr>
+            <td class="table-row-active-background-color">
+                    {{teacher.name}}
+            </td>
+            <td class="table-row-active-background-color">
+                    {{teacher.userName}}
+            </td>
+            <td>
+                    <div class="buttons are-medium">
+                            <a href="#" class="button is-primary" v-on:click.prevent="editTeacher">Edit</a>
+                                <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>
+                          </div>
+                
+            </td>
+            
+        </tr>
+    </table>

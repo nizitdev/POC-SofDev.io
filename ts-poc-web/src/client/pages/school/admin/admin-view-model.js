@@ -28,7 +28,9 @@ let ListAdminViewModel = class ListAdminViewModel extends n_app_1.PageViewModel 
     get password() { return this._password; }
     set password(value) { this._password = value; }
     get users() { return this._user; }
-    login() {
+    login(isAdmin) {
+        if (isAdmin) {
+        }
         this._adminService.login(this.userName, this.password)
             .then(t => this._user = t)
             .then(() => this._navigationService.navigate(Routes.listTeachers, {})).catch(e => console.log(e));

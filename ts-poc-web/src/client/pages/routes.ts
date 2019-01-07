@@ -5,4 +5,5 @@ export const manageContact = "/manageContact?{id?:string}";
 export const adminPage = "/admin_layout";
 export const listTeachers = "/listTeacher";
 export const manageTeacher = "/manageTeacher?{id?:string}";
- 
+ export const listStudents = "/listStudent";
+ export const manageStudent = "/manageStudent?{id?:string}";
