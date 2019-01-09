@@ -1,5 +1,4 @@
-<table class="table is-fullwidth">
-
+ 
     <tr>
         <td class="table-row-active-background-color">
             {{student.name}}
@@ -11,12 +10,13 @@
             {{student.division}}
         </td>
         <td>
-            <div class="buttons are-medium">
+            <div class="buttons are-medium student-controls">
                 <a href="#" class="button is-primary" v-on:click.prevent="editStudent">Edit</a>
-                <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>
+                <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>  
+                 <a href="#" class="button is-primary" v-on:click.prevent="manageStudentMark">Enter mark</a>
             </div>
 
         </td>
 
     </tr>
-</table>
+ 

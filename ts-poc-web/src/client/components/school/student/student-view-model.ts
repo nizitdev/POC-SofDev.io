@@ -29,7 +29,11 @@ export class StudentViewModel extends ComponentViewModel
         this._navigationService = navigationService;
     }
     
-    
+      public manageStudentMark(): void
+    { 
+        this._navigationService.navigate(Routes.manageStudentMark , { 
+            student_id: this.student.id });
+    }
     public editStudent(): void
     { 
         this._navigationService.navigate(Routes.manageStudent , { 

@@ -24,6 +24,7 @@ class LocalAdminService {
                     userName: "admin",
                     password: "admin",
                     classInCharge: null,
+                    qualification: null,
                     isDeleted: false
                 });
             }
@@ -35,6 +36,7 @@ class LocalAdminService {
                     userName: "Nivya",
                     password: "12345678",
                     classInCharge: "x-a",
+                    qualification: null,
                     isDeleted: false
                 });
             }

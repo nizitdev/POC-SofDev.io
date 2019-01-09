@@ -6,6 +6,7 @@ import { TeacherService } from "../../../services/school/teacher/teacher-service
 import { given } from "@nivinjoseph/n-defensive";
 import { Division } from "../../../models/school/division";
 import { AdminService } from "../../../services/school/admin/admin-service";
+import { Qualification } from "../../../models/school/qualification";
 
 
 @template(require("./manage-teacher-view.html"))
@@ -20,6 +21,9 @@ export class ManageTeacherViewModel extends PageViewModel {
     private _divisions: ReadonlyArray<Division>;
     public get divisions(): ReadonlyArray<Division> {return this._divisions; }
   
+    private _qualifications: ReadonlyArray<Qualification>;
+    public get qualifications(): ReadonlyArray<Qualification> {return this._qualifications; }
+
     private _operation: string;
     private _id: string | null;
     private _name: string;
@@ -27,6 +31,7 @@ export class ManageTeacherViewModel extends PageViewModel {
     private _password: string;
     private _isAdmin: boolean;
     private _classInCharge:  string ;
+    private _qualification:  Array<string> ;
      
     public get operation(): string { return this._operation; }
 
@@ -43,8 +48,10 @@ export class ManageTeacherViewModel extends PageViewModel {
     public set password(value: string) { this._password = value; }
 
     public get  classInCharge(): string {  return this._classInCharge; }
-
     public set  classInCharge(value:   string ) { this._classInCharge = value; } 
+
+    public get  qualification(): Array<string> {  return this._qualification; }
+    public set  qualification(value:   Array<string>  ) { this._qualification = value; } 
 
     public constructor(teacherService: TeacherService, navigationService: NavigationService, adminService: AdminService,  ) {
         super();
@@ -56,6 +63,7 @@ export class ManageTeacherViewModel extends PageViewModel {
         this._navigationService = navigationService;
          
         this._divisions = [];
+        this._qualifications = [];
         this._operation = "";
         this._id = null;
         this._name = "";
@@ -63,14 +71,15 @@ export class ManageTeacherViewModel extends PageViewModel {
         this._password = "";
         this._userName = "";
         this._classInCharge = "";
+        this.qualification =  [];
     }
 
     public save(): void {
      //   let s = this._classInCharge;
         debugger;
        const savePromise: Promise<any> = this._id
-            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge)
-            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge);
+            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification)
+            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification);
             
         savePromise
             .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
@@ -81,6 +90,10 @@ export class ManageTeacherViewModel extends PageViewModel {
     protected onEnter(id?: string): void {
         this._adminService.getDivisions()
             .then(t => this._divisions = t)
+            .catch(e => console.log(e));
+
+            this._teacherService.getQualification()
+            .then(t => this._qualifications = t)
             .catch(e => console.log(e));
 
         if (id && !id.isEmptyOrWhiteSpace()) {
@@ -94,7 +107,7 @@ export class ManageTeacherViewModel extends PageViewModel {
                     this._userName = t.userName;
                     this._password = t.password;
                     this._classInCharge = t.classInCharge;
-
+                    this.qualification =  t.qualification;
                 })
                 .catch(e => console.log(e));
         }

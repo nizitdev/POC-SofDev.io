@@ -1,0 +1,50 @@
+<div class="manage-teacher-view">
+    <h1 class="title">
+        {{operation}}
+    </h1>
+
+    <form>
+        <div class="field">
+            <label class="label">Student Name</label>
+            <div> <input class="input" type="text" v-model="studentName"></div>
+
+            <div class="control">
+
+                {{studentName}}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">subject</label>
+            <div class="control">
+                <div class="select">
+                    <select v-model="subject">
+                        <option v-for="item in subjects" v-bind:value="item.name">
+                            {{ item.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Mark</label>
+            <div class="control">
+                <input class="input" type="text" v-model="mark" placeholder="Mark">
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" v-on:click.prevent="save">Save</button>
+            </div>
+            <div class="control">
+                <router-link class="button is-text" to="/listStudent">Cancel</router-link>
+            </div>
+        </div>
+    </form>
+    <div>
+        <studentMark v-for="item in studentMarkEntry" v-bind:key="item.id" v-bind:value="item">
+
+        </studentMark>
+    </div>
+
+</div>

@@ -6,5 +6,6 @@ export interface User
     userName: string;
     password: string;
     classInCharge: string;
+    qualification: Array<string>;
     isDeleted: boolean;
 } 

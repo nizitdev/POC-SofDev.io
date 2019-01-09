@@ -22,7 +22,7 @@
                 <input class="input" type="password" v-model="password" placeholder="Password">
             </div>
         </div>
-       
+
         <div class="field">
             <label class="label"></label>
             <div class="control">
@@ -31,16 +31,30 @@
         </div>
         <div class="field">
             <label class="label">class In Charge</label>
-        <div class="control">
-          <div class="select">
-            <select  id="selectClassInCharge"  v-model="classInCharge">
-                <option v-for="item in divisions" v-bind:value="item.id" >
-                  {{ item.name }}
-                </option>
-              </select> 
-          </div>
+            <div class="control">
+                <div class="select">
+                    <select id="selectClassInCharge" v-model="classInCharge">
+                        <option v-for="item in divisions" v-bind:value="item.id">
+                            {{ item.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="field">
+            <label class="label">Qualification</label>
+            <div class="control">
+                <table>
+                    <tr v-for="user in qualifications">
+                        <td>
+                            {{ user.name }}
+                        </td>
+                        <td><input type="checkbox" v-model="qualification" :value="user.id"></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-link" v-on:click.prevent="save">Save</button>

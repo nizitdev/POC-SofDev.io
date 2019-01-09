@@ -43,6 +43,7 @@ export class LocalAdminService implements AdminService
                     userName: "admin",
                     password: "admin", 
                     classInCharge : null,
+                    qualification : null,
                     isDeleted: false
                 });
             }
@@ -54,6 +55,7 @@ export class LocalAdminService implements AdminService
                         userName: "Nivya",
                         password: "12345678", 
                         classInCharge : "x-a",
+                        qualification : null,
                         isDeleted: false
                     });
             }

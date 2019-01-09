@@ -24,6 +24,11 @@ let StudentViewModel = class StudentViewModel extends n_app_1.ComponentViewModel
     get student() {
         return this.getBound("value");
     }
+    manageStudentMark() {
+        this._navigationService.navigate(Routes.manageStudentMark, {
+            student_id: this.student.id
+        });
+    }
     editStudent() {
         this._navigationService.navigate(Routes.manageStudent, {
             id: this.student.id

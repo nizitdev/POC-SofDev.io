@@ -24,6 +24,7 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
         n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
         this._navigationService = navigationService;
         this._divisions = [];
+        this._qualifications = [];
         this._operation = "";
         this._id = null;
         this._name = "";
@@ -31,8 +32,10 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
         this._password = "";
         this._userName = "";
         this._classInCharge = "";
+        this.qualification = [];
     }
     get divisions() { return this._divisions; }
+    get qualifications() { return this._qualifications; }
     get operation() { return this._operation; }
     get name() { return this._name; }
     set name(value) { this._name = value; }
@@ -44,11 +47,13 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
     set password(value) { this._password = value; }
     get classInCharge() { return this._classInCharge; }
     set classInCharge(value) { this._classInCharge = value; }
+    get qualification() { return this._qualification; }
+    set qualification(value) { this._qualification = value; }
     save() {
         debugger;
         const savePromise = this._id
-            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge)
-            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge);
+            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification)
+            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification);
         savePromise
             .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
             .catch(e => console.log(e));
@@ -56,6 +61,9 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
     onEnter(id) {
         this._adminService.getDivisions()
             .then(t => this._divisions = t)
+            .catch(e => console.log(e));
+        this._teacherService.getQualification()
+            .then(t => this._qualifications = t)
             .catch(e => console.log(e));
         if (id && !id.isEmptyOrWhiteSpace()) {
             this._operation = "Update";
@@ -67,6 +75,7 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
                 this._userName = t.userName;
                 this._password = t.password;
                 this._classInCharge = t.classInCharge;
+                this.qualification = t.qualification;
             })
                 .catch(e => console.log(e));
         }

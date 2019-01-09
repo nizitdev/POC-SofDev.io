@@ -7,3 +7,5 @@ export const listTeachers = "/listTeacher";
 export const manageTeacher = "/manageTeacher?{id?:string}";
  export const listStudents = "/listStudent";
  export const manageStudent = "/manageStudent?{id?:string}";    
+ export const manageStudentMark = "/manageStudentMark?{id?:string}";
+  export const listStudentMarks = "/StudentMark";

@@ -1,36 +1,26 @@
 <div class="list-student-view">
-        <nav class="navbar has-addons is-right" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                
-            </div>
-            <div class="navbar-brand navbar-end">
-                <router-link to="/manageStudent" class="button is-primary create-student-button">Add Student</router-link>
-            </div>
-        </nav>
-        
-        <table class="table is-fullwidth">
-                <tr>
-                    <td class="table-row-active-background-color is-primary">
-                        Name 
-                    </td>
-                   
-                    
-                 
-                <td class="table-row-active-background-color is-primary">
-                        Name 
-                    </td>
-        
-                    <td class="table-row-active-background-color is-primary">
-                            Name 
-                        </td>
-                        <td class="table-row-active-background-color is-primary">
-                                
-                            </td>
-                             
-                        </tr>
-            </table>
-            <div class="todo-container">
-                    <studentElement v-for="item in students" v-bind:key="item.id" v-bind:value="item"></studentElement>
-                </div>
-       
-    </div>
+    <nav class="navbar has-addons is-right" role="navigation" aria-label="main navigation">
+         
+        <div class="navbar-brand navbar-end">
+            <router-link to="/manageStudent" class="button is-primary create-student-button">Add Student</router-link>
+        </div>
+    </nav>
+    <table class="table is-fullwidth">
+        <tr>
+            <td class="table-row-active-background-color is-primary">
+                Name
+            </td>
+            <td class="table-row-active-background-color is-primary">
+                sex
+            </td>
+
+            <td class="table-row-active-background-color  is-primary">
+                division
+            </td>
+            <td class="is-primary  rightHeadStyle">
+                Controls
+            </td>
+        </tr>
+        <studentElement v-for="item in students" v-bind:key="item.id" v-bind:value="item"></studentElement>
+    </table>
+</div>

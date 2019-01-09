@@ -6,6 +6,7 @@ import { StudentService } from "../../../services/school/student/student-service
 import { given } from "@nivinjoseph/n-defensive";
 import { Division } from "../../../models/school/division";
 import { AdminService } from "../../../services/school/admin/admin-service";
+import { StudentMarkEntry } from "../../../models/school/studentMarkEntry";
 
 
 @template(require("./manage-student-view.html"))
@@ -16,7 +17,9 @@ export class ManageStudentViewModel extends PageViewModel {
     private readonly _studentService: StudentService;
     private readonly _navigationService: NavigationService;
     private readonly _adminService: AdminService; 
-    
+    private _studentMarkEntry:  ReadonlyArray<StudentMarkEntry>;
+    public get studentMarkEntry(): ReadonlyArray<StudentMarkEntry> {return this._studentMarkEntry; }
+ 
     private _divisions: ReadonlyArray<Division>;
     public get divisions(): ReadonlyArray<Division> {return this._divisions; }
   
@@ -53,6 +56,7 @@ export class ManageStudentViewModel extends PageViewModel {
         this._name = "";
         this._sex = " ";
         this._division = "";
+        this._studentMarkEntry = [];
          
     }
 
@@ -74,6 +78,10 @@ export class ManageStudentViewModel extends PageViewModel {
             .then(t => this._divisions = t)
             .catch(e => console.log(e));
 
+            this._studentService.getStudentMarkEntries()
+            .then(t => this._studentMarkEntry = t)
+            .catch(e => console.log(e));
+
         if (id && !id.isEmptyOrWhiteSpace()) {
             this._operation = "Update";
             
@@ -92,8 +100,9 @@ export class ManageStudentViewModel extends PageViewModel {
             this._operation = "Add";
         }
     }
-
+    
 
 
 
 }
+ 

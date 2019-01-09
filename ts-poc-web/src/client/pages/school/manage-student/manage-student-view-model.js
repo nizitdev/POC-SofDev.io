@@ -29,7 +29,9 @@ let ManageStudentViewModel = class ManageStudentViewModel extends n_app_1.PageVi
         this._name = "";
         this._sex = " ";
         this._division = "";
+        this._studentMarkEntry = [];
     }
+    get studentMarkEntry() { return this._studentMarkEntry; }
     get divisions() { return this._divisions; }
     get operation() { return this._operation; }
     get name() { return this._name; }
@@ -50,6 +52,9 @@ let ManageStudentViewModel = class ManageStudentViewModel extends n_app_1.PageVi
     onEnter(id) {
         this._adminService.getDivisions()
             .then(t => this._divisions = t)
+            .catch(e => console.log(e));
+        this._studentService.getStudentMarkEntries()
+            .then(t => this._studentMarkEntry = t)
             .catch(e => console.log(e));
         if (id && !id.isEmptyOrWhiteSpace()) {
             this._operation = "Update";

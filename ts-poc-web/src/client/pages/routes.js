@@ -9,4 +9,6 @@ exports.listTeachers = "/listTeacher";
 exports.manageTeacher = "/manageTeacher?{id?:string}";
 exports.listStudents = "/listStudent";
 exports.manageStudent = "/manageStudent?{id?:string}";
+exports.manageStudentMark = "/manageStudentMark?{id?:string}";
+exports.listStudentMarks = "/StudentMark";
 //# sourceMappingURL=routes.js.map

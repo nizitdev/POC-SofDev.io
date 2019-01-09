@@ -10,17 +10,15 @@
             <td class="table-row-active-background-color is-primary">
                 Name 
             </td>
-           
+            <td class="table-row-active-background-color  is-primary">
+                    Username
+                </td>
+                <td class="is-primary  teacher-control">
+                    Controls
+                </td>
             
-        </tr>
-        <tr>
-            <td>
-                <div class="todo-container">
+        </tr> 
                     <teacherElement v-for="item in teachers" v-bind:key="item.id" v-bind:value="item"></teacherElement>
-                </div>
-            </td>
-        </tr>
-
-
+               
     </table>
 </div>

@@ -9,6 +9,8 @@ const list_teacher_view_model_1 = require("./school/list-teachers/list-teacher-v
 const manage_teacher_view_model_1 = require("./school/manage-teacher/manage-teacher-view-model");
 const list_student_view_model_1 = require("./school/list-students/list-student-view-model");
 const manage_student_view_model_1 = require("./school/manage-student/manage-student-view-model");
+const manage_studentMarkEntry_view_model_1 = require("./school/manage-studentMarkEntry/manage-studentMarkEntry-view-model");
+const list_studentMarks_view_model_1 = require("./school/list-studentMarks/list-studentMarks-view-model");
 exports.pages = [
     list_todos_view_model_1.ListTodosViewModel,
     manage_todo_view_model_1.ManageTodoViewModel,
@@ -18,6 +20,8 @@ exports.pages = [
     list_teacher_view_model_1.ListTeachersViewModel,
     manage_teacher_view_model_1.ManageTeacherViewModel,
     list_student_view_model_1.ListStudentViewModel,
-    manage_student_view_model_1.ManageStudentViewModel
+    manage_student_view_model_1.ManageStudentViewModel,
+    manage_studentMarkEntry_view_model_1.ManageStudentMarkViewModel,
+    list_studentMarks_view_model_1.ListStudentMarkViewModel,
 ];
 //# sourceMappingURL=pages.js.map

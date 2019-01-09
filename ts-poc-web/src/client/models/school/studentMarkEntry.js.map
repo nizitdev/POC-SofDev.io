@@ -1,0 +1,1 @@
+{"version":3,"file":"studentMarkEntry.js","sourceRoot":"","sources":["studentMarkEntry.ts"],"names":[],"mappings":"","sourcesContent":["export interface StudentMarkEntry\r\n{\r\n    id: string;\r\n    student_id: string;\r\n    studentName: string;\r\n    subject: string;\r\n    mark: string;\r\n  \r\n}"]}
