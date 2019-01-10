@@ -41,7 +41,6 @@ let ManageStudentViewModel = class ManageStudentViewModel extends n_app_1.PageVi
     get division() { return this._division; }
     set division(value) { this._division = value; }
     save() {
-        debugger;
         const savePromise = this._id
             ? this._studentService.updateStudent(this._id, this._name, this._sex, this._division)
             : this._studentService.createStudent(this._name, this._sex, this._division);

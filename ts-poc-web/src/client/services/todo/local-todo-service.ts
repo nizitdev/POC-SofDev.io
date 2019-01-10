@@ -37,7 +37,7 @@ export class LocalTodoService implements TodoService
     
     public getTodo(id: string): Promise<Todo>
     {
-        debugger;
+        
         given(id, "id").ensureHasValue().ensureIsString();
         
         return Promise.resolve(this._todos.find(t => t.id === id));

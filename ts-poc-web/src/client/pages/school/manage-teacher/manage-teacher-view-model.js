@@ -50,7 +50,6 @@ let ManageTeacherViewModel = class ManageTeacherViewModel extends n_app_1.PageVi
     get qualification() { return this._qualification; }
     set qualification(value) { this._qualification = value; }
     save() {
-        debugger;
         const savePromise = this._id
             ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification)
             : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification);

@@ -31,7 +31,6 @@ let TeacherViewModel = class TeacherViewModel extends n_app_1.ComponentViewModel
         });
     }
     deleteTeacher() {
-        debugger;
         this._teacherService.deleteTeacher(this.teacher.id)
             .then(() => this.teacher.isDeleted = true)
             .catch(e => console.log(e));

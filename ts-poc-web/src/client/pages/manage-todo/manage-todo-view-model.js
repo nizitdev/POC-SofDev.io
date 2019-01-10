@@ -42,7 +42,6 @@ let ManageTodoViewModel = class ManageTodoViewModel extends n_app_1.PageViewMode
     onEnter(id) {
         if (id && !id.isEmptyOrWhiteSpace()) {
             this._operation = "Update";
-            debugger;
             this._todoService.getTodo(id)
                 .then(t => {
                 this._id = t.id;

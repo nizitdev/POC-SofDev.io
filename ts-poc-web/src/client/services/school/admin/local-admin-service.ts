@@ -22,7 +22,7 @@ export class LocalAdminService implements AdminService
         {
             divisions.push({
                     id:  "id" + i,
-                    name: "div" + i,
+                    name: "class-" + i,
                     
                 });
         }
@@ -33,7 +33,7 @@ export class LocalAdminService implements AdminService
         
         for (let i = 0; i < count; i++)
         {
-            debugger;
+            
             if (i === 0) {
                 users.push({
                     id: "id" + i,
@@ -72,12 +72,11 @@ export class LocalAdminService implements AdminService
         return Promise.resolve(this._user);
     }
      
-    public login(userName: string, password: string): Promise<User>
-    {
+    public login(userName: string, password: string): Promise<User> {
         given(userName, "userName").ensureHasValue().ensureIsString();
         given(password, "password").ensureHasValue().ensureIsString();
-        debugger;
- let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
+
+        let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
         return Promise.resolve(user);
     }
  

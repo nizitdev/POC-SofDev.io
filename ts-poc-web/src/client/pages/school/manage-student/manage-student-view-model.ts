@@ -61,8 +61,7 @@ export class ManageStudentViewModel extends PageViewModel {
     }
 
     public save(): void {
-     //   let s = this._classInCharge;
-        debugger;
+         
        const savePromise: Promise<any> = this._id
             ? this._studentService.updateStudent(this._id, this._name, this._sex, this._division)
             : this._studentService.createStudent(this._name, this._sex, this._division);

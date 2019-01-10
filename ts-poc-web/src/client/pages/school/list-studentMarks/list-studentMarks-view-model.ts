@@ -27,7 +27,7 @@ export class ListStudentMarkViewModel extends PageViewModel {
 
     }
     protected onEnter(id?: string): void {
-        debugger;
+         
         this._studentService.getStudentMark(id)
 
             .then(t => this._studentMarkEntry = t)

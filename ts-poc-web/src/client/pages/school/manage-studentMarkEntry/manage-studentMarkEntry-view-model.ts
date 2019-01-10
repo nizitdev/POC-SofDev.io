@@ -1,4 +1,4 @@
-import { template, route, PageViewModel, NavigationService } from "@nivinjoseph/n-app";
+import { template, route, PageViewModel } from "@nivinjoseph/n-app";
 import * as Routes from "../../routes";
 import "./manage-studentMarkEntry-view.scss";
 import { inject } from "@nivinjoseph/n-ject";
@@ -10,7 +10,7 @@ import { Subject } from "../../../models/school/subject";
 
 @template(require("./manage-studentMarkEntry-view.html"))
 @route(Routes.manageStudentMark)
-@inject("StudentService", "NavigationService")
+@inject("StudentService")
 export class ManageStudentMarkViewModel extends PageViewModel {
 
     private readonly _studentService: StudentService;
@@ -42,13 +42,12 @@ export class ManageStudentMarkViewModel extends PageViewModel {
     public set student_id(value: string) { this._student_id = value; }
 
 
-    public constructor(studentService: StudentService, navigationService: NavigationService) {
+    public constructor(studentService: StudentService) {
         super();
 
         given(studentService, "studentService").ensureHasValue().ensureIsObject();
         this._studentService = studentService;
-        given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-       // this._navigationService = navigationService;
+      
         this._subjects = [];
         this._studentMarkEntry = [];
         this._id = "";
@@ -60,7 +59,7 @@ export class ManageStudentMarkViewModel extends PageViewModel {
 
     public save(): void {
 
-        debugger;
+        
         const savePromise: Promise<any> = this._id
             ? this._studentService.updateStudentMarkEntry(this._id, this._studentName, this._subject, this._mark, this._student_id)
             : this._studentService.createStudentMarkEntry(this._student_id, this._studentName, this._subject, this._mark);
@@ -68,18 +67,19 @@ export class ManageStudentMarkViewModel extends PageViewModel {
         savePromise
         .then(() => this._studentService.getStudentMark(this.student_id)
             .then(t => this._studentMarkEntry = t)
-            .catch(e => console.log(e)));
-       // .then(() => this._navigationService.navigate(Routes.manageStudentMark, {id: this._student_id})) .catch(e => console.log(e));
-              debugger;
+            .catch(e => console.log(e))
+            )
+        .catch(e => console.log(e));
+              
     }
 
 
     protected onEnter(id?: string): void {
-debugger;
+ 
         this._studentService.getSubjects()
         .then(t => this._subjects = t)
         .catch(e => console.log(e));
-        debugger;
+        
         this._studentService.getStudent(id)
         .then(t => {
             this._student_id = t.id,
@@ -109,7 +109,7 @@ debugger;
 
         // }
         // else {
-        //     debugger;
+        //     
            
         // }
     }

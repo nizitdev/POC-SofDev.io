@@ -25,7 +25,6 @@ let ListStudentMarkViewModel = class ListStudentMarkViewModel extends n_app_1.Pa
         return this._studentMarkEntry;
     }
     onEnter(id) {
-        debugger;
         this._studentService.getStudentMark(id)
             .then(t => this._studentMarkEntry = t)
             .catch(e => console.log(e));

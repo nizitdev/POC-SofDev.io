@@ -15,11 +15,10 @@ require("./manage-studentMarkEntry-view.scss");
 const n_ject_1 = require("@nivinjoseph/n-ject");
 const n_defensive_1 = require("@nivinjoseph/n-defensive");
 let ManageStudentMarkViewModel = class ManageStudentMarkViewModel extends n_app_1.PageViewModel {
-    constructor(studentService, navigationService) {
+    constructor(studentService) {
         super();
         n_defensive_1.given(studentService, "studentService").ensureHasValue().ensureIsObject();
         this._studentService = studentService;
-        n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
         this._subjects = [];
         this._studentMarkEntry = [];
         this._id = "";
@@ -40,22 +39,19 @@ let ManageStudentMarkViewModel = class ManageStudentMarkViewModel extends n_app_
     get student_id() { return this._student_id; }
     set student_id(value) { this._student_id = value; }
     save() {
-        debugger;
         const savePromise = this._id
             ? this._studentService.updateStudentMarkEntry(this._id, this._studentName, this._subject, this._mark, this._student_id)
             : this._studentService.createStudentMarkEntry(this._student_id, this._studentName, this._subject, this._mark);
         savePromise
             .then(() => this._studentService.getStudentMark(this.student_id)
             .then(t => this._studentMarkEntry = t)
-            .catch(e => console.log(e)));
-        debugger;
+            .catch(e => console.log(e)))
+            .catch(e => console.log(e));
     }
     onEnter(id) {
-        debugger;
         this._studentService.getSubjects()
             .then(t => this._subjects = t)
             .catch(e => console.log(e));
-        debugger;
         this._studentService.getStudent(id)
             .then(t => {
             this._student_id = t.id,
@@ -71,8 +67,8 @@ let ManageStudentMarkViewModel = class ManageStudentMarkViewModel extends n_app_
 ManageStudentMarkViewModel = __decorate([
     n_app_1.template(require("./manage-studentMarkEntry-view.html")),
     n_app_1.route(Routes.manageStudentMark),
-    n_ject_1.inject("StudentService", "NavigationService"),
-    __metadata("design:paramtypes", [Object, Object])
+    n_ject_1.inject("StudentService"),
+    __metadata("design:paramtypes", [Object])
 ], ManageStudentMarkViewModel);
 exports.ManageStudentMarkViewModel = ManageStudentMarkViewModel;
 //# sourceMappingURL=manage-studentMarkEntry-view-model.js.map

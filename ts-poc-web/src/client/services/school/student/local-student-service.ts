@@ -20,22 +20,22 @@ export class LocalStudentService implements StudentService {
 
         subject.push({
             id: "1",
-            name: "Maths",
-        });
-        subject.push({
-            id: "1",
-            name: "Hindi",
-        });
-        subject.push({
-            id: "1",
-            name: "Science",
-        });
-        subject.push({
-            id: "1",
-            name: "Social",
+            name: "Mathematics",
         });
         subject.push({
             id: "2",
+            name: "Hindi",
+        });
+        subject.push({
+            id: "3",
+            name: "Science",
+        });
+        subject.push({
+            id: "4",
+            name: "Social Science",
+        });
+        subject.push({
+            id: "5",
             name: "English",
         });
         this._subject = subject;
@@ -43,7 +43,7 @@ export class LocalStudentService implements StudentService {
             student.push({
                 id: "id" + i,
                 name: "Student" + i,
-                division: "x-a",
+                division: "class-" + i,
                 sex: "Male",
                 isDeleted: false
             });
@@ -64,20 +64,20 @@ export class LocalStudentService implements StudentService {
     }
     public getStudentMark(studentId: string): Promise<ReadonlyArray<StudentMarkEntry>> {
         given(studentId, "studentId").ensureHasValue().ensureIsString();
-        debugger;
+         
         return Promise.resolve(this._studentMarkEntry.filter(t => t.student_id === studentId));
     }
     public getSubjects(): Promise<ReadonlyArray<Subject>> {
         return Promise.resolve(this._subject);
     }
     public getStudentMarkEntry(id: string): Promise<StudentMarkEntry> {
-        debugger;
+        
         given(id, "id").ensureHasValue().ensureIsString();
 
         return Promise.resolve(this._studentMarkEntry.find(t => t.student_id === id));
     }
     public getStudent(id: string): Promise<Student> {
-        debugger;
+      
         given(id, "id").ensureHasValue().ensureIsString();
 
         return Promise.resolve(this._student.find(t => t.id === id));
@@ -89,7 +89,7 @@ export class LocalStudentService implements StudentService {
 
 
     public createStudentMarkEntry(student_id: string, studentName: string, subject: string, mark: string): Promise<StudentMarkEntry> {
-        debugger;
+        
         given(studentName, "studentName").ensureHasValue().ensureIsString();
         given(subject, "subject").ensureIsString();
         given(mark, "mark").ensureHasValue().ensureIsString();
@@ -120,7 +120,7 @@ export class LocalStudentService implements StudentService {
     }
 
     public createStudent(name: string, sex: string, division: string): Promise<Student> {
-        debugger;
+        
         given(name, "name").ensureHasValue().ensureIsString();
         given(sex, "sex").ensureIsString();
         given(division, "division").ensureHasValue().ensureIsString();

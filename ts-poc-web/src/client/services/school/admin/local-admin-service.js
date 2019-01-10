@@ -10,12 +10,11 @@ class LocalAdminService {
         for (let i = 0; i < divCount; i++) {
             divisions.push({
                 id: "id" + i,
-                name: "div" + i,
+                name: "class-" + i,
             });
         }
         this._division = divisions;
         for (let i = 0; i < count; i++) {
-            debugger;
             if (i === 0) {
                 users.push({
                     id: "id" + i,
@@ -52,7 +51,6 @@ class LocalAdminService {
     login(userName, password) {
         n_defensive_1.given(userName, "userName").ensureHasValue().ensureIsString();
         n_defensive_1.given(password, "password").ensureHasValue().ensureIsString();
-        debugger;
         let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
         return Promise.resolve(user);
     }

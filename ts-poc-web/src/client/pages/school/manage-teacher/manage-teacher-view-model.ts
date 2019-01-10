@@ -75,8 +75,8 @@ export class ManageTeacherViewModel extends PageViewModel {
     }
 
     public save(): void {
-     //   let s = this._classInCharge;
-        debugger;
+      
+        
        const savePromise: Promise<any> = this._id
             ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification)
             : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification);

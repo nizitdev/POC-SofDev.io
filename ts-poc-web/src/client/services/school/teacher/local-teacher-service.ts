@@ -34,7 +34,7 @@ export class LocalTeacherService implements TeacherService {
         for (let i = 0; i < count; i++) {
             teacher.push({
                 id: "id" + i,
-                name: "teacher" + i,
+                name: "Teacher" + i,
                 userName: "UserName" + i,
                 isAdmin: false,
                 classInCharge: null,
@@ -56,7 +56,7 @@ export class LocalTeacherService implements TeacherService {
         return Promise.resolve(this._qualification);
     }
     public getTeacher(id: string): Promise<User> {
-        debugger;
+        
         given(id, "id").ensureHasValue().ensureIsString();
 
         return Promise.resolve(this._teacher.find(t => t.id === id));
@@ -64,7 +64,7 @@ export class LocalTeacherService implements TeacherService {
 
 
     public createTeacher(name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string, qualification: Array<string>): Promise<User> {
-        debugger;
+        
         given(name, "name").ensureHasValue().ensureIsString();
         given(isAdmin, "isAdmin").ensureIsBoolean();
         given(password, "password").ensureHasValue().ensureIsString();

@@ -22,7 +22,7 @@ class LocalTeacherService {
         for (let i = 0; i < count; i++) {
             teacher.push({
                 id: "id" + i,
-                name: "teacher" + i,
+                name: "Teacher" + i,
                 userName: "UserName" + i,
                 isAdmin: false,
                 classInCharge: null,
@@ -41,12 +41,10 @@ class LocalTeacherService {
         return Promise.resolve(this._qualification);
     }
     getTeacher(id) {
-        debugger;
         n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
         return Promise.resolve(this._teacher.find(t => t.id === id));
     }
     createTeacher(name, isAdmin, password, userName, classInCharge, qualification) {
-        debugger;
         n_defensive_1.given(name, "name").ensureHasValue().ensureIsString();
         n_defensive_1.given(isAdmin, "isAdmin").ensureIsBoolean();
         n_defensive_1.given(password, "password").ensureHasValue().ensureIsString();

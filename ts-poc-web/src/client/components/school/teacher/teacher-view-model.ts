@@ -36,7 +36,7 @@ export class TeacherViewModel extends ComponentViewModel {
     }
 
     public deleteTeacher(): void {
-        debugger;
+       
         this._teacherService.deleteTeacher(this.teacher.id)
             .then(() => this.teacher.isDeleted = true)
             .catch(e => console.log(e));

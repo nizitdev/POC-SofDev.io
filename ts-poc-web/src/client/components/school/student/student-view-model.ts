@@ -31,7 +31,7 @@ export class StudentViewModel extends ComponentViewModel
     
       public manageStudentMark(): void
     { 
-        debugger;
+        
         this._navigationService.navigate(Routes.manageStudentMark , { 
           id: this.student.id});
     }
@@ -43,7 +43,7 @@ export class StudentViewModel extends ComponentViewModel
     
     public deleteStudent(): void
     {
-        debugger;
+        
         this._studentService.deleteStudent(this.student.id)
             .then(() => this.student.isDeleted = true)
             .catch(e => console.log(e));

@@ -60,7 +60,7 @@ export class ManageTodoViewModel extends PageViewModel
         if (id && !id.isEmptyOrWhiteSpace())
         {
             this._operation = "Update";
-            debugger;
+            
             this._todoService.getTodo(id)
                 .then(t =>
                 {

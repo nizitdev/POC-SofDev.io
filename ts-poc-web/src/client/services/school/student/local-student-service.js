@@ -9,22 +9,22 @@ class LocalStudentService {
         const subject = new Array();
         subject.push({
             id: "1",
-            name: "Maths",
-        });
-        subject.push({
-            id: "1",
-            name: "Hindi",
-        });
-        subject.push({
-            id: "1",
-            name: "Science",
-        });
-        subject.push({
-            id: "1",
-            name: "Social",
+            name: "Mathematics",
         });
         subject.push({
             id: "2",
+            name: "Hindi",
+        });
+        subject.push({
+            id: "3",
+            name: "Science",
+        });
+        subject.push({
+            id: "4",
+            name: "Social Science",
+        });
+        subject.push({
+            id: "5",
             name: "English",
         });
         this._subject = subject;
@@ -32,7 +32,7 @@ class LocalStudentService {
             student.push({
                 id: "id" + i,
                 name: "Student" + i,
-                division: "x-a",
+                division: "class-" + i,
                 sex: "Male",
                 isDeleted: false
             });
@@ -46,19 +46,16 @@ class LocalStudentService {
     }
     getStudentMark(studentId) {
         n_defensive_1.given(studentId, "studentId").ensureHasValue().ensureIsString();
-        debugger;
         return Promise.resolve(this._studentMarkEntry.filter(t => t.student_id === studentId));
     }
     getSubjects() {
         return Promise.resolve(this._subject);
     }
     getStudentMarkEntry(id) {
-        debugger;
         n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
         return Promise.resolve(this._studentMarkEntry.find(t => t.student_id === id));
     }
     getStudent(id) {
-        debugger;
         n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
         return Promise.resolve(this._student.find(t => t.id === id));
     }
@@ -66,7 +63,6 @@ class LocalStudentService {
         return Promise.resolve(this._student);
     }
     createStudentMarkEntry(student_id, studentName, subject, mark) {
-        debugger;
         n_defensive_1.given(studentName, "studentName").ensureHasValue().ensureIsString();
         n_defensive_1.given(subject, "subject").ensureIsString();
         n_defensive_1.given(mark, "mark").ensureHasValue().ensureIsString();
@@ -93,7 +89,6 @@ class LocalStudentService {
         return Promise.resolve();
     }
     createStudent(name, sex, division) {
-        debugger;
         n_defensive_1.given(name, "name").ensureHasValue().ensureIsString();
         n_defensive_1.given(sex, "sex").ensureIsString();
         n_defensive_1.given(division, "division").ensureHasValue().ensureIsString();

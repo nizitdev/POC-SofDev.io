@@ -26,7 +26,6 @@ let StudentViewModel = class StudentViewModel extends n_app_1.ComponentViewModel
         return this.getBound("value");
     }
     manageStudentMark() {
-        debugger;
         this._navigationService.navigate(Routes.manageStudentMark, {
             id: this.student.id
         });
@@ -37,7 +36,6 @@ let StudentViewModel = class StudentViewModel extends n_app_1.ComponentViewModel
         });
     }
     deleteStudent() {
-        debugger;
         this._studentService.deleteStudent(this.student.id)
             .then(() => this.student.isDeleted = true)
             .catch(e => console.log(e));
