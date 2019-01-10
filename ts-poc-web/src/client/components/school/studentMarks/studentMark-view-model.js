@@ -9,9 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = require("@nivinjoseph/n-app");
 const n_ject_1 = require("@nivinjoseph/n-ject");
 let StudentMarkViewModel = class StudentMarkViewModel extends n_app_1.ComponentViewModel {
-    get studentMarkEntry() {
-        return this.getBound("value");
-    }
 };
 StudentMarkViewModel = __decorate([
     n_app_1.template(require("./studentMark-view.html")),

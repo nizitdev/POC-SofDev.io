@@ -1,21 +1,20 @@
 import { given } from "@nivinjoseph/n-defensive";
 import { TeacherService } from "../teacher/teacher-service";
 import { User } from "../../../models/school/user";
-
 import { Qualification } from "../../../models/school/qualification";
 
 
 export class LocalTeacherService implements TeacherService {
     private readonly _teacher: Array<User>;
     private _counter: number;
-  
+
     private readonly _qualification: Array<Qualification>;
 
     public constructor() {
         const teacher = new Array<User>();
         const count = 5;
         const qualification = new Array<Qualification>();
- 
+
         qualification.push({
             id: "2",
             name: "UG",
@@ -30,7 +29,7 @@ export class LocalTeacherService implements TeacherService {
         });
         this._qualification = qualification;
 
-      
+
 
         for (let i = 0; i < count; i++) {
             teacher.push({
@@ -52,7 +51,7 @@ export class LocalTeacherService implements TeacherService {
     public getTeachers(): Promise<ReadonlyArray<User>> {
         return Promise.resolve(this._teacher);
     }
-  
+
     public getQualification(): Promise<ReadonlyArray<Qualification>> {
         return Promise.resolve(this._qualification);
     }
@@ -71,7 +70,7 @@ export class LocalTeacherService implements TeacherService {
         given(password, "password").ensureHasValue().ensureIsString();
         given(userName, "userName").ensureHasValue().ensureIsString();
         given(classInCharge, "classInCharge").ensureIsString();
-          given(qualification, "qualification").ensureIsArray().ensureHasValue();
+        given(qualification, "qualification").ensureIsArray().ensureHasValue();
 
         const teacher: User = {
             id: "id" + this._counter,
@@ -108,12 +107,12 @@ export class LocalTeacherService implements TeacherService {
     }
 
 
-    // public deleteTeacher(id: string): Promise<void> {
-    //     given(id, "id").ensureHasValue().ensureIsString();
+    public deleteTeacher(id: string): Promise<void> {
+        given(id, "id").ensureHasValue().ensureIsString();
 
-    //     const teacher = this._teacher.find(t => t.id === id);
-    //     teacher.isDeleted = true;
+        const teacher = this._teacher.find(t => t.id === id);
+        teacher.isDeleted = true;
 
-    //     return Promise.resolve();
-    // }
+        return Promise.resolve();
+    }
 }

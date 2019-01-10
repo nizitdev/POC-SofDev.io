@@ -19,20 +19,28 @@ let StudentViewModel = class StudentViewModel extends n_app_1.ComponentViewModel
         super();
         n_defensive_1.given(studentService, "studentService").ensureHasValue().ensureIsObject();
         n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
+        this._studentService = studentService;
         this._navigationService = navigationService;
     }
     get student() {
         return this.getBound("value");
     }
     manageStudentMark() {
+        debugger;
         this._navigationService.navigate(Routes.manageStudentMark, {
-            student_id: this.student.id
+            id: this.student.id
         });
     }
     editStudent() {
         this._navigationService.navigate(Routes.manageStudent, {
             id: this.student.id
         });
+    }
+    deleteStudent() {
+        debugger;
+        this._studentService.deleteStudent(this.student.id)
+            .then(() => this.student.isDeleted = true)
+            .catch(e => console.log(e));
     }
 };
 StudentViewModel = __decorate([

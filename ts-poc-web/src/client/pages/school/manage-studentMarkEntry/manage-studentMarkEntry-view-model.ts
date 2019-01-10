@@ -14,7 +14,7 @@ import { Subject } from "../../../models/school/subject";
 export class ManageStudentMarkViewModel extends PageViewModel {
 
     private readonly _studentService: StudentService;
-    private readonly _navigationService: NavigationService;
+   // private readonly _navigationService: NavigationService;
     private _studentMarkEntry: ReadonlyArray<StudentMarkEntry>;
     public get studentMarkEntry(): ReadonlyArray<StudentMarkEntry> { return this._studentMarkEntry; }
     private _subjects: ReadonlyArray<Subject>;
@@ -48,14 +48,14 @@ export class ManageStudentMarkViewModel extends PageViewModel {
         given(studentService, "studentService").ensureHasValue().ensureIsObject();
         this._studentService = studentService;
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        this._navigationService = navigationService;
+       // this._navigationService = navigationService;
         this._subjects = [];
         this._studentMarkEntry = [];
         this._id = "";
         this._studentName = "";
         this._subject = "";
         this._mark = "";
-        this._student_id = "id1";
+        this._student_id = "";
     }
 
     public save(): void {
@@ -66,41 +66,52 @@ export class ManageStudentMarkViewModel extends PageViewModel {
             : this._studentService.createStudentMarkEntry(this._student_id, this._studentName, this._subject, this._mark);
 
         savePromise
-            .then(() => this._navigationService.navigate(Routes.manageStudentMark , { 
-                student_id: "id1" }));
-             
+        .then(() => this._studentService.getStudentMark(this.student_id)
+            .then(t => this._studentMarkEntry = t)
+            .catch(e => console.log(e)));
+       // .then(() => this._navigationService.navigate(Routes.manageStudentMark, {id: this._student_id})) .catch(e => console.log(e));
+              debugger;
     }
 
 
-    protected onEnter(student_id?: string, id?: string): void {
-
+    protected onEnter(id?: string): void {
+debugger;
+        this._studentService.getSubjects()
+        .then(t => this._subjects = t)
+        .catch(e => console.log(e));
         debugger;
-        this._studentService.getStudentMark(student_id)
+        this._studentService.getStudent(id)
+        .then(t => {
+            this._student_id = t.id,
+            this._studentName = t.name;
+             
+        })
+        .catch(e => console.log(e));
+         
+        this._studentService.getStudentMark(id)
             .then(t => this._studentMarkEntry = t)
             .catch(e => console.log(e));
-         
-        this._studentService.getSubjects()
-            .then(t => this._subjects = t)
-            .catch(e => console.log(e));
-
-        if (id && !id.isEmptyOrWhiteSpace()) {
-            this._operation = "Update";
-
-            this._studentService.getStudentMarkEntry(id)
-                .then(t => {
-                    this._id = t.id;
-                    this._student_id = id;
-                    this._mark = t.mark;
-                    this._studentName = t.studentName;
-                    this._subject = t.subject;
-
-                })
-                .catch(e => console.log(e));
-
-        }
-        else {
             this._operation = "Add";
-        }
+        // if (markId && !markId.isEmptyOrWhiteSpace() ) {
+           
+        //     // this._operation = "Update";
+
+        //     // this._studentService.getStudentMarkEntry(markId)
+        //     //     .then(t => {
+        //     //         this._id = t.id;
+        //     //         this._student_id = id;
+        //     //         this._mark = t.mark;
+        //     //         this._studentName = t.studentName;
+        //     //         this._subject = t.subject;
+
+        //     //     })
+        //     //     .catch(e => console.log(e));
+
+        // }
+        // else {
+        //     debugger;
+           
+        // }
     }
 
 }

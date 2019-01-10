@@ -83,6 +83,12 @@ class LocalTeacherService {
         teacher.qualification = qualification;
         return Promise.resolve();
     }
+    deleteTeacher(id) {
+        n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
+        const teacher = this._teacher.find(t => t.id === id);
+        teacher.isDeleted = true;
+        return Promise.resolve();
+    }
 }
 exports.LocalTeacherService = LocalTeacherService;
 //# sourceMappingURL=local-teacher-service.js.map

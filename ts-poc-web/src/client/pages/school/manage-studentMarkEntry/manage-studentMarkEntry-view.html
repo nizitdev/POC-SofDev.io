@@ -1,4 +1,4 @@
-<div class="manage-teacher-view">
+<div class="manage-student-view">
     <h1 class="title">
         {{operation}}
     </h1>
@@ -6,10 +6,9 @@
     <form>
         <div class="field">
             <label class="label">Student Name</label>
-            <div> <input class="input" type="text" v-model="studentName"></div>
+            <div> <input class="input" type="hidden" v-model="studentName"></div>
 
             <div class="control">
-
                 {{studentName}}
             </div>
         </div>
@@ -37,14 +36,26 @@
                 <button class="button is-link" v-on:click.prevent="save">Save</button>
             </div>
             <div class="control">
-                <router-link class="button is-text" to="/listStudent">Cancel</router-link>
+                <router-link class="button is-link" to="/listStudent">Cancel</router-link>
             </div>
         </div>
     </form>
-    <div>
+
+    <table class="table is-fullwidth table_mark">
+        <tr>
+            <td class="table-row-active-background-color is-primary">
+                Name
+            </td>
+            <td class="table-row-active-background-color is-primary">
+                Subject
+            </td>
+            <td class="table-row-active-background-color is-primary">
+                Mark
+            </td>
+
+        </tr>
         <studentMark v-for="item in studentMarkEntry" v-bind:key="item.id" v-bind:value="item">
 
         </studentMark>
-    </div>
-
+    </table>
 </div>

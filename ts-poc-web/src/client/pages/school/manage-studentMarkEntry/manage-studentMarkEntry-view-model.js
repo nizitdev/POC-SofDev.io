@@ -20,14 +20,13 @@ let ManageStudentMarkViewModel = class ManageStudentMarkViewModel extends n_app_
         n_defensive_1.given(studentService, "studentService").ensureHasValue().ensureIsObject();
         this._studentService = studentService;
         n_defensive_1.given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-        this._navigationService = navigationService;
         this._subjects = [];
         this._studentMarkEntry = [];
         this._id = "";
         this._studentName = "";
         this._subject = "";
         this._mark = "";
-        this._student_id = "id1";
+        this._student_id = "";
     }
     get studentMarkEntry() { return this._studentMarkEntry; }
     get subjects() { return this._subjects; }
@@ -46,33 +45,27 @@ let ManageStudentMarkViewModel = class ManageStudentMarkViewModel extends n_app_
             ? this._studentService.updateStudentMarkEntry(this._id, this._studentName, this._subject, this._mark, this._student_id)
             : this._studentService.createStudentMarkEntry(this._student_id, this._studentName, this._subject, this._mark);
         savePromise
-            .then(() => this._navigationService.navigate(Routes.manageStudentMark, {
-            student_id: "id1"
-        }));
-    }
-    onEnter(student_id, id) {
-        debugger;
-        this._studentService.getStudentMark(student_id)
+            .then(() => this._studentService.getStudentMark(this.student_id)
             .then(t => this._studentMarkEntry = t)
-            .catch(e => console.log(e));
+            .catch(e => console.log(e)));
+        debugger;
+    }
+    onEnter(id) {
+        debugger;
         this._studentService.getSubjects()
             .then(t => this._subjects = t)
             .catch(e => console.log(e));
-        if (id && !id.isEmptyOrWhiteSpace()) {
-            this._operation = "Update";
-            this._studentService.getStudentMarkEntry(id)
-                .then(t => {
-                this._id = t.id;
-                this._student_id = id;
-                this._mark = t.mark;
-                this._studentName = t.studentName;
-                this._subject = t.subject;
-            })
-                .catch(e => console.log(e));
-        }
-        else {
-            this._operation = "Add";
-        }
+        debugger;
+        this._studentService.getStudent(id)
+            .then(t => {
+            this._student_id = t.id,
+                this._studentName = t.name;
+        })
+            .catch(e => console.log(e));
+        this._studentService.getStudentMark(id)
+            .then(t => this._studentMarkEntry = t)
+            .catch(e => console.log(e));
+        this._operation = "Add";
     }
 };
 ManageStudentMarkViewModel = __decorate([

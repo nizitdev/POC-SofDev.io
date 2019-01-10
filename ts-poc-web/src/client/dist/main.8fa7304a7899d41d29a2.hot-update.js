@@ -1,0 +1,26 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/client/components/school/studentMarks/studentMark-view.html":
+/*!*************************************************************************!*\
+  !*** ./src/client/components/school/studentMarks/studentMark-view.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = " \r\n    <tr>\r\n        <td class=\"table-row-active-background-color\">\r\n            {{studentMarkEntry.studentName}}\r\n        </td>\r\n        <td class=\"table-row-active-background-color\">\r\n            {{studentMarkEntry.subject}}\r\n        </td>\r\n        <td class=\"table-row-active-background-color\">\r\n            {{studentMarkEntry.mark}}\r\n        </td>\r\n        \r\n    </tr>\r\n";
+
+/***/ }),
+
+/***/ "./src/client/pages/school/list-studentMarks/list-studentMarks-view.html":
+/*!*******************************************************************************!*\
+  !*** ./src/client/pages/school/list-studentMarks/list-studentMarks-view.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"list-student-view\">\r\n    <nav class=\"navbar has-addons is-right\" role=\"navigation\" aria-label=\"main navigation\">\r\n         \r\n        <div class=\"navbar-brand navbar-end\">\r\n            <router-link to=\"/manageStudentMark\" class=\"button is-primary create-student-button\">Add mark</router-link>\r\n        </div>\r\n    </nav>\r\n    <table class=\"table is-fullwidth\">\r\n        <tr>\r\n            <td class=\"table-row-active-background-color is-primary\">\r\n                Name\r\n            </td>\r\n            <td class=\"table-row-active-background-color is-primary\">\r\n               Subject\r\n            </td>\r\n \r\n            <td class=\"is-primary  rightHeadStyle\">\r\n                Controls\r\n            </td>\r\n        </tr>\r\n      \r\n                <studentMark   v-for=\"item in studentMarkEntry\" v-bind:key=\"item.id\" v-bind:value=\"item\">\r\n                  \r\n                </studentMark>\r\n            \r\n           \r\n    </table>\r\n</div>";
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvY2xpZW50L2NvbXBvbmVudHMvc2Nob29sL3N0dWRlbnRNYXJrcy9zdHVkZW50TWFyay12aWV3Lmh0bWwiLCJ3ZWJwYWNrOi8vLy4vc3JjL2NsaWVudC9wYWdlcy9zY2hvb2wvbGlzdC1zdHVkZW50TWFya3MvbGlzdC1zdHVkZW50TWFya3Mtdmlldy5odG1sIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBLDZHQUE2Ryw4QkFBOEIsK0ZBQStGLDBCQUEwQiwrRkFBK0YsdUJBQXVCLGdEOzs7Ozs7Ozs7OztBQ0ExWCxxaEMiLCJmaWxlIjoibWFpbi44ZmE3MzA0YTc4OTlkNDFkMjlhMi5ob3QtdXBkYXRlLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSBcIiBcXHJcXG4gICAgPHRyPlxcclxcbiAgICAgICAgPHRkIGNsYXNzPVxcXCJ0YWJsZS1yb3ctYWN0aXZlLWJhY2tncm91bmQtY29sb3JcXFwiPlxcclxcbiAgICAgICAgICAgIHt7c3R1ZGVudE1hcmtFbnRyeS5zdHVkZW50TmFtZX19XFxyXFxuICAgICAgICA8L3RkPlxcclxcbiAgICAgICAgPHRkIGNsYXNzPVxcXCJ0YWJsZS1yb3ctYWN0aXZlLWJhY2tncm91bmQtY29sb3JcXFwiPlxcclxcbiAgICAgICAgICAgIHt7c3R1ZGVudE1hcmtFbnRyeS5zdWJqZWN0fX1cXHJcXG4gICAgICAgIDwvdGQ+XFxyXFxuICAgICAgICA8dGQgY2xhc3M9XFxcInRhYmxlLXJvdy1hY3RpdmUtYmFja2dyb3VuZC1jb2xvclxcXCI+XFxyXFxuICAgICAgICAgICAge3tzdHVkZW50TWFya0VudHJ5Lm1hcmt9fVxcclxcbiAgICAgICAgPC90ZD5cXHJcXG4gICAgICAgIFxcclxcbiAgICA8L3RyPlxcclxcblwiOyIsIm1vZHVsZS5leHBvcnRzID0gXCI8ZGl2IGNsYXNzPVxcXCJsaXN0LXN0dWRlbnQtdmlld1xcXCI+XFxyXFxuICAgIDxuYXYgY2xhc3M9XFxcIm5hdmJhciBoYXMtYWRkb25zIGlzLXJpZ2h0XFxcIiByb2xlPVxcXCJuYXZpZ2F0aW9uXFxcIiBhcmlhLWxhYmVsPVxcXCJtYWluIG5hdmlnYXRpb25cXFwiPlxcclxcbiAgICAgICAgIFxcclxcbiAgICAgICAgPGRpdiBjbGFzcz1cXFwibmF2YmFyLWJyYW5kIG5hdmJhci1lbmRcXFwiPlxcclxcbiAgICAgICAgICAgIDxyb3V0ZXItbGluayB0bz1cXFwiL21hbmFnZVN0dWRlbnRNYXJrXFxcIiBjbGFzcz1cXFwiYnV0dG9uIGlzLXByaW1hcnkgY3JlYXRlLXN0dWRlbnQtYnV0dG9uXFxcIj5BZGQgbWFyazwvcm91dGVyLWxpbms+XFxyXFxuICAgICAgICA8L2Rpdj5cXHJcXG4gICAgPC9uYXY+XFxyXFxuICAgIDx0YWJsZSBjbGFzcz1cXFwidGFibGUgaXMtZnVsbHdpZHRoXFxcIj5cXHJcXG4gICAgICAgIDx0cj5cXHJcXG4gICAgICAgICAgICA8dGQgY2xhc3M9XFxcInRhYmxlLXJvdy1hY3RpdmUtYmFja2dyb3VuZC1jb2xvciBpcy1wcmltYXJ5XFxcIj5cXHJcXG4gICAgICAgICAgICAgICAgTmFtZVxcclxcbiAgICAgICAgICAgIDwvdGQ+XFxyXFxuICAgICAgICAgICAgPHRkIGNsYXNzPVxcXCJ0YWJsZS1yb3ctYWN0aXZlLWJhY2tncm91bmQtY29sb3IgaXMtcHJpbWFyeVxcXCI+XFxyXFxuICAgICAgICAgICAgICAgU3ViamVjdFxcclxcbiAgICAgICAgICAgIDwvdGQ+XFxyXFxuIFxcclxcbiAgICAgICAgICAgIDx0ZCBjbGFzcz1cXFwiaXMtcHJpbWFyeSAgcmlnaHRIZWFkU3R5bGVcXFwiPlxcclxcbiAgICAgICAgICAgICAgICBDb250cm9sc1xcclxcbiAgICAgICAgICAgIDwvdGQ+XFxyXFxuICAgICAgICA8L3RyPlxcclxcbiAgICAgIFxcclxcbiAgICAgICAgICAgICAgICA8c3R1ZGVudE1hcmsgICB2LWZvcj1cXFwiaXRlbSBpbiBzdHVkZW50TWFya0VudHJ5XFxcIiB2LWJpbmQ6a2V5PVxcXCJpdGVtLmlkXFxcIiB2LWJpbmQ6dmFsdWU9XFxcIml0ZW1cXFwiPlxcclxcbiAgICAgICAgICAgICAgICAgIFxcclxcbiAgICAgICAgICAgICAgICA8L3N0dWRlbnRNYXJrPlxcclxcbiAgICAgICAgICAgIFxcclxcbiAgICAgICAgICAgXFxyXFxuICAgIDwvdGFibGU+XFxyXFxuPC9kaXY+XCI7Il0sInNvdXJjZVJvb3QiOiIifQ==

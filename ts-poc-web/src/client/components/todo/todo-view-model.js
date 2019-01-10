@@ -32,6 +32,7 @@ let TodoViewModel = class TodoViewModel extends n_app_1.ComponentViewModel {
         this._navigationService.navigate(Routes.manageTodo, { id: this.todo.id });
     }
     deleteTodo() {
+        debugger;
         this._todoService.deleteTodo(this.todo.id)
             .then(() => this.todo.isDeleted = true)
             .catch(e => console.log(e));

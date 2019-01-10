@@ -1,4 +1,3 @@
-  
 import { given } from "@nivinjoseph/n-defensive";
 import { AdminService } from "./admin-service";
 import { User } from "../../../models/school/user";
@@ -81,11 +80,6 @@ export class LocalAdminService implements AdminService
  let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
         return Promise.resolve(user);
     }
-   
-    
-    
-    
-     
-    
+ 
     
 }

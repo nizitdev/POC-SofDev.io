@@ -13,7 +13,7 @@ import "./student-view.scss";
 export class StudentViewModel extends ComponentViewModel
 { 
     private readonly _navigationService: NavigationService;
-    
+    private readonly _studentService: StudentService;
     
     public get student(): Student {
       
@@ -25,14 +25,15 @@ export class StudentViewModel extends ComponentViewModel
         super();
         given(studentService, "studentService").ensureHasValue().ensureIsObject();
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
-       // this._teacherService = teacherService;
+        this._studentService = studentService;
         this._navigationService = navigationService;
     }
     
       public manageStudentMark(): void
     { 
+        debugger;
         this._navigationService.navigate(Routes.manageStudentMark , { 
-            student_id: this.student.id });
+          id: this.student.id});
     }
     public editStudent(): void
     { 
@@ -40,10 +41,12 @@ export class StudentViewModel extends ComponentViewModel
             id: this.student.id });
     }
     
-    // public deleteTeacher(): void
-    // {
-    //     this._teacherService.deleteTeacher(this.teacher.id)
-    //         .then(() => this.teacher.isDeleted = true)
-    //         .catch(e => console.log(e));
-    // }
+    public deleteStudent(): void
+    {
+        debugger;
+        this._studentService.deleteStudent(this.student.id)
+            .then(() => this.student.isDeleted = true)
+            .catch(e => console.log(e));
+            
+    }
 }

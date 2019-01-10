@@ -12,6 +12,18 @@ class LocalStudentService {
             name: "Maths",
         });
         subject.push({
+            id: "1",
+            name: "Hindi",
+        });
+        subject.push({
+            id: "1",
+            name: "Science",
+        });
+        subject.push({
+            id: "1",
+            name: "Social",
+        });
+        subject.push({
             id: "2",
             name: "English",
         });
@@ -25,18 +37,6 @@ class LocalStudentService {
                 isDeleted: false
             });
         }
-        debugger;
-        student.forEach(element => {
-            subject.forEach(x => {
-                studentMarkEntry.push({
-                    id: "id",
-                    student_id: element.id,
-                    studentName: element.name,
-                    mark: "50",
-                    subject: x.name
-                });
-            });
-        });
         this._studentMarkEntry = studentMarkEntry;
         this._student = student;
         this._counter = count;
@@ -70,7 +70,6 @@ class LocalStudentService {
         n_defensive_1.given(studentName, "studentName").ensureHasValue().ensureIsString();
         n_defensive_1.given(subject, "subject").ensureIsString();
         n_defensive_1.given(mark, "mark").ensureHasValue().ensureIsString();
-        student_id = "id" + 1;
         const studentMarkSEntry = {
             id: "id" + this._counter,
             subject: subject,
@@ -117,6 +116,12 @@ class LocalStudentService {
         student.name = name;
         student.sex = sex;
         student.division = division;
+        return Promise.resolve();
+    }
+    deleteStudent(id) {
+        n_defensive_1.given(id, "id").ensureHasValue().ensureIsString();
+        const student = this._student.find(t => t.id === id);
+        student.isDeleted = true;
         return Promise.resolve();
     }
 }

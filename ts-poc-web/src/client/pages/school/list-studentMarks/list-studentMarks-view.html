@@ -1,28 +1,26 @@
 <div class="list-student-view">
     <nav class="navbar has-addons is-right" role="navigation" aria-label="main navigation">
-         
+
         <div class="navbar-brand navbar-end">
             <router-link to="/manageStudentMark" class="button is-primary create-student-button">Add mark</router-link>
         </div>
     </nav>
+
     <table class="table is-fullwidth">
         <tr>
             <td class="table-row-active-background-color is-primary">
                 Name
             </td>
             <td class="table-row-active-background-color is-primary">
-               Subject
+                Subject
             </td>
- 
+            <td class="table-row-active-background-color is-primary">
+                Mark
+            </td>
             <td class="is-primary  rightHeadStyle">
                 Controls
             </td>
         </tr>
-        <div>
-                <studentMark   v-for="item in studentMarkEntry" v-bind:key="item.id" v-bind:value="item">
-                  
-                </studentMark>
-            </div>
-           
+        <studentMark v-for="item in studentMarkEntry" v-bind:key="item.id" v-bind:value="item"></studentMark>
     </table>
 </div>

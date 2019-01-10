@@ -1,18 +1,16 @@
- 
-        <tr>
-            <td class="table-row-active-background-color">
-                    {{teacher.name}}
-            </td>
-            <td class="table-row-active-background-color">
-                    {{teacher.userName}}
-            </td>
-            <td>
-                    <div class="buttons are-medium teacher-controls">
-                            <a href="#" class="button is-primary" v-on:click.prevent="editTeacher">Edit</a>
-                                <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>
-                          </div>
-                
-            </td>
-            
-        </tr>
-  
+<tr v-if="!teacher.isDeleted">
+        <td class="table-row-active-background-color">
+                {{teacher.name}}
+        </td>
+        <td class="table-row-active-background-color">
+                {{teacher.userName}}
+        </td>
+        <td>
+                <div class="buttons are-medium teacher-controls">
+                        <a href="#" class="button is-primary" v-on:click.prevent="editTeacher">Edit</a>
+                        <a href="#" class="button is-primary" v-on:click.prevent="deleteTeacher">Delete</a>
+                </div>
+
+        </td>
+
+</tr>

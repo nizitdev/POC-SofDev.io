@@ -44,6 +44,7 @@ export class TodoViewModel extends ComponentViewModel
     
     public deleteTodo(): void
     {
+        debugger;
         this._todoService.deleteTodo(this.todo.id)
             .then(() => this.todo.isDeleted = true)
             .catch(e => console.log(e));

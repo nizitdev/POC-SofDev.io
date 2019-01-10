@@ -1,5 +1,4 @@
 import { PageViewModel, template, route, NavigationService } from "@nivinjoseph/n-app";
-
 import "../admin/admin-view.scss";
 import * as Routes from "../../routes";
 import { AdminService } from "../../../services/school/admin/admin-service";
@@ -9,7 +8,6 @@ import { inject } from "@nivinjoseph/n-ject";
 
 @template(require("../admin/admin-view.html"))
 @route(Routes.adminPage)
-// @inject("")    
 @inject("AdminService", "NavigationService")
 export class ListAdminViewModel extends PageViewModel {
 
@@ -33,8 +31,6 @@ export class ListAdminViewModel extends PageViewModel {
         this._adminService = adminService;
 
     }
-
-
     public login(): void {
         let that = this;
         this._adminService.login(this.userName, this.password)
@@ -47,10 +43,7 @@ export class ListAdminViewModel extends PageViewModel {
                     that._navigationService.navigate(Routes.listStudents, {});
                 }
             }, function (e) {
-                // handle errors here
                 console.log(e);
             });
-
-
     }
 }

@@ -1,31 +1,31 @@
 <body class="layout-default">
-    <section class="hero is-fullheight is-medium is-primary is-bold">
-          <div class="hero-body">
-            <div class="container">
-              <div class="columns is-centered"">
-                <article class="card is-rounded">
-                  <div class="card-content">
-                    <h1 class="title">
-                         LOGIN            
-                    </h1>
-                    <p class="control has-icon">
-                      <input class="input" type="text" v-model="userName" placeholder="Username">
-                      <i class="fa fa-envelope"></i>
-                    </p>
-                    <p class="control has-icon">
-                      <input class="input" type="password" v-model="password" placeholder="Password">
-                      <i class="fa fa-lock"></i>
-                    </p>
-                   
-                      <button class="button is-primary is-medium is-fullwidth" v-on:click.prevent="login">
-                        <i class="fa fa-user"></i>
-                        Login
-                      </button>
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
+  <section class="hero is-fullheight is-medium is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered"">
+                <article class=" card is-rounded">
+          <div class="card-content">
+            <h1 class="title">
+              LOGIN
+            </h1>
+            <p class="control has-icon">
+              <input class="input" type="text" v-model="userName" placeholder="Username">
+              <i class="fa fa-envelope"></i>
+            </p>
+            <p class="control has-icon">
+              <input class="input" type="password" v-model="password" placeholder="Password">
+              <i class="fa fa-lock"></i>
+            </p>
+
+            <button class="button is-primary is-medium is-fullwidth" v-on:click.prevent="login">
+              <i class="fa fa-user"></i>
+              Login
+            </button>
+            </p>
+          </div>
+          </article>
+        </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+</body>
