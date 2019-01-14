@@ -28,18 +28,15 @@ let ListAdminViewModel = class ListAdminViewModel extends n_app_1.PageViewModel 
     set password(value) { this._password = value; }
     get user() { return this._user; }
     login() {
-        let that = this;
         this._adminService.login(this.userName, this.password)
-            .then(function (result) {
-            if (result.isAdmin === true) {
-                that._navigationService.navigate(Routes.listTeachers, {});
-            }
-            else {
-                that._navigationService.navigate(Routes.listStudents, {});
-            }
-        }, function (e) {
-            console.log(e);
-        });
+            .then(t => this._user = t)
+            .catch(e => console.log(e));
+        if (this._user.isAdmin === true) {
+            this._navigationService.navigate(Routes.listTeachers, {});
+        }
+        else {
+            this._navigationService.navigate(Routes.listStudents, {});
+        }
     }
 };
 ListAdminViewModel = __decorate([
