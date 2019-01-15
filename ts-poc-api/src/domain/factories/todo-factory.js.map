@@ -1,1 +1,0 @@
-{"version":3,"file":"todo-factory.js","sourceRoot":"","sources":["todo-factory.ts"],"names":[],"mappings":"","sourcesContent":["import { Todo } from \"../aggregates/todo/todo\";\r\n\r\n\r\nexport interface TodoFactory\r\n{\r\n    create(title: string, description: string): Promise<Todo>;\r\n}"]}

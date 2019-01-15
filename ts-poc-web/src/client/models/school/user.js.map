@@ -1,1 +1,0 @@
-{"version":3,"file":"user.js","sourceRoot":"","sources":["user.ts"],"names":[],"mappings":"","sourcesContent":["export interface User\r\n{\r\n    id: string;\r\n    name: string;\r\n    isAdmin: boolean;\r\n    userName: string;\r\n    password: string;\r\n    classInCharge: string;\r\n    qualification: Array<string>;\r\n    isDeleted: boolean;\r\n} \r\n"]}

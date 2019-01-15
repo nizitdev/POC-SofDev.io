@@ -1,1 +1,0 @@
-{"version":3,"file":"subject.js","sourceRoot":"","sources":["subject.ts"],"names":[],"mappings":"","sourcesContent":["export interface Subject {\r\n    id: string;\r\n    name: string;\r\n}"]}

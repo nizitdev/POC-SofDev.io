@@ -1,1 +1,0 @@
-{"version":3,"file":"qualification.js","sourceRoot":"","sources":["qualification.ts"],"names":[],"mappings":"","sourcesContent":["export interface Qualification {\r\n    id: string;\r\n    name: string;\r\n}"]}

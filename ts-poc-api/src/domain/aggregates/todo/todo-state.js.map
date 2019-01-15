@@ -1,1 +1,0 @@
-{"version":3,"file":"todo-state.js","sourceRoot":"","sources":["todo-state.ts"],"names":[],"mappings":"","sourcesContent":["import { AggregateState } from \"@nivinjoseph/n-domain\";\r\n\r\n\r\nexport interface TodoState extends AggregateState\r\n{\r\n    title: string;\r\n    description: string;\r\n    isCompleted: boolean;\r\n}"]}
