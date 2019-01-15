@@ -75,9 +75,12 @@ export class LocalTodoService implements TodoService
     
     public markTodoAsCompleted(id: string): Promise<void>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+        given(id, "id")
+            .ensureHasValue()
+            .ensureIsString()
+            .ensure(t => this._todos.some(u => u.id === t), "Todo not found");
         
-        const todo = this._todos.find(t => t.id === id);
+        const todo = this._todos.find(t => t.id === id) as Todo;
         todo.isCompleted = true;
         
         return Promise.resolve();

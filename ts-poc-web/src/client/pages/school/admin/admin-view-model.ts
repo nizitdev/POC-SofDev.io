@@ -11,61 +11,82 @@ import { inject } from "@nivinjoseph/n-ject";
 @inject("AdminService", "NavigationService")
 export class ListAdminViewModel extends PageViewModel
 {
-    private _userName: string;
-    private _password: string;
+    private _userName: string | null;
+    private _password: string | null;
     private readonly _adminService: AdminService;
     private readonly _navigationService: NavigationService;
-    private _user: User;
-    
-    
-    public get userName(): string { return this._userName; }
-    public set userName(value: string) { this._userName = value; }
-    
-    public get password(): string { return this._password; }
-    public set password(value: string) { this._password = value; }
+    private _user: User | null;
 
-    public get user(): User { return this._user; }
-    
-    
+
+    public get userName(): string | null { return this._userName; }
+    public set userName(value: string | null) { this._userName = value; }
+
+    public get password(): string | null { return this._password; }
+    public set password(value: string | null) { this._password = value; }
+
+    public get user(): User | null { return this._user; }
+
+
     public constructor(adminService: AdminService, navigationService: NavigationService)
     {
         super();
-        
+
         given(adminService, "adminService").ensureHasValue().ensureIsObject();
         this._adminService = adminService;
-        
+
         given(navigationService, "navigationService").ensureHasValue().ensureIsObject();
         this._navigationService = navigationService;
-    }
-    // public login(): void {
-    //     let that = this;
-    //     this._adminService.login(this.userName, this.password)
-    //         .then(function (result) {
-    //             if (result.isAdmin === true) {
-    //                 that._navigationService.navigate(Routes.listTeachers, {});
-    //             }
-    //             else {
 
-    //                 that._navigationService.navigate(Routes.listStudents, {});
-    //             }
-    //         }, function (e) {
-    //             console.log(e);
-    //         });
+        this._userName = null;
+        this._password = null;
+        this._user = null;
+
+    }
+    
+
+    // public async login(): Promise<void>
+    // {
+    //     given(this, "this")
+    //         .ensure(t => t._userName != null && this._password != null, "username and password must be set");
+
+    //     try 
+    //     {
+    //         this._user = await this._adminService.login(this.userName as string, this.password as string);
+    //         if (this._user.isAdmin === true)
+    //         {
+    //             this._navigationService.navigate(Routes.listTeachers, {});
+    //         }
+    //         else
+    //         {
+    //             this._navigationService.navigate(Routes.listStudents, {});
+    //         }
+    //     }
+    //     catch (error)
+    //     {
+    //         console.log(error);
+    //     }
     // }
 
-    public login(): void
+    public async login(): Promise<void>
     {
-        this._adminService.login(this.userName, this.password)
-            .then(t => this._user = t)
-            .catch(e => console.log(e));
+        given(this, "this")
+            .ensure(t => t._userName != null && this._password != null, "username and password must be set");
 
-        if (this._user.isAdmin === true)
-        {
-            this._navigationService.navigate(Routes.listTeachers, {});
-        }
-        else
-        {
-            this._navigationService.navigate(Routes.listStudents, {});
-        }
+        this._adminService.login(this.userName as string, this.password as string)
+            .then(t =>
+            {
+                this._user = t;
+                if (this._user.isAdmin === true)
+                {
+                    this._navigationService.navigate(Routes.listTeachers, {});
+                }
+                else
+                {
+                    this._navigationService.navigate(Routes.listStudents, {});
+                }
+            })
+            .catch(e => console.log(e));
+        
+        console.log("I am executing");
     }
 }
