@@ -26,17 +26,21 @@ export class ManageTeacherViewModel extends PageViewModel {
 
     private _operation: string;
     private _id: string | null;
-    private _name: string;
+    private _name: string;  
+    private _fileUpload: string;
     private _userName: string;
     private _password: string;
     private _isAdmin: boolean;
     private _classInCharge:  string ;
-    private _qualification:  Array<string> ;
+    private _qualification:  Array<string> | null;
      
     public get operation(): string { return this._operation; }
 
     public get name(): string { return this._name; }
     public set name(value: string) { this._name = value; }
+
+    public get fileUpload(): string { return this._fileUpload; }
+    public set fileUpload(value: string) { this._fileUpload = value; }
 
     public get isAdmin(): boolean { return this._isAdmin; }
     public set isAdmin(value: boolean) { this._isAdmin = value; }
@@ -50,8 +54,8 @@ export class ManageTeacherViewModel extends PageViewModel {
     public get  classInCharge(): string {  return this._classInCharge; }
     public set  classInCharge(value:   string ) { this._classInCharge = value; } 
 
-    public get  qualification(): Array<string> {  return this._qualification; }
-    public set  qualification(value:   Array<string>  ) { this._qualification = value; } 
+    public get  qualification(): Array<string>|null {  return this._qualification; }
+    public set  qualification(value:   Array<string>  | null) { this._qualification = value; } 
 
     public constructor(teacherService: TeacherService, navigationService: NavigationService, adminService: AdminService,  ) {
         super();
@@ -66,20 +70,23 @@ export class ManageTeacherViewModel extends PageViewModel {
         this._qualifications = [];
         this._operation = "";
         this._id = null;
-        this._name = "";
+        this._name = "";  
+        this._fileUpload = "";
         this._isAdmin = false;
         this._password = "";
         this._userName = "";
         this._classInCharge = "";
-        this.qualification =  [];
+        this._qualification =  [];
     }
 
     public save(): void {
       
-        
+    //   let s = this._fileUpload;
+    //   debugger;
+    //   alert(s);
        const savePromise: Promise<any> = this._id
-            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification)
-            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification);
+            ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification as Array<string>)
+            : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification as Array<string>);
             
         savePromise
             .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
@@ -107,7 +114,7 @@ export class ManageTeacherViewModel extends PageViewModel {
                     this._userName = t.userName;
                     this._password = t.password;
                     this._classInCharge = t.classInCharge;
-                    this.qualification =  t.qualification;
+                    this._qualification =  t.qualification;
                 })
                 .catch(e => console.log(e));
         }

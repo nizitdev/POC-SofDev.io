@@ -55,6 +55,13 @@
 
             </div>
         </div>
+        
+        <div class="field">
+            <label class="label"> file Upload</label>
+            <div class="control">
+                <input class="file" type="file" v-model="fileUpload">
+            </div>
+        </div>
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-link" v-on:click.prevent="save">Save</button>

@@ -28,7 +28,12 @@ export class ListStudentMarkViewModel extends PageViewModel {
     }
     protected onEnter(id?: string): void {
          
-        this._studentService.getStudentMark(id)
+        
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._studentMarkEntry.some(u => u.id === t), "student  not found");
+        this._studentService.getStudentMark(id as string)
 
             .then(t => this._studentMarkEntry = t)
             .catch(e => console.log(e));

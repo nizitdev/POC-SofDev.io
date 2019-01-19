@@ -37,7 +37,7 @@ export class LocalTeacherService implements TeacherService {
                 name: "Teacher" + i,
                 userName: "UserName" + i,
                 isAdmin: false,
-                classInCharge: null,
+                classInCharge: "",
                 password: "12345678",
                 isDeleted: false,
                 qualification: ["UG", "PG"],
@@ -57,9 +57,11 @@ export class LocalTeacherService implements TeacherService {
     }
     public getTeacher(id: string): Promise<User> {
         
-        given(id, "id").ensureHasValue().ensureIsString();
-
-        return Promise.resolve(this._teacher.find(t => t.id === id));
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
+        return Promise.resolve(this._teacher.find(t => t.id === id) as User);
     }
 
 
@@ -88,7 +90,12 @@ export class LocalTeacherService implements TeacherService {
     }
 
     public updateTeacher(id: string, name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string, qualification: Array<string>): Promise<void> {
-        given(id, "id").ensureHasValue().ensureIsString();
+      
+       
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
         given(name, "name").ensureHasValue().ensureIsString();
         given(isAdmin, "isAdmin").ensureIsBoolean();
         given(password, "password").ensureHasValue().ensureIsString();
@@ -96,7 +103,7 @@ export class LocalTeacherService implements TeacherService {
         given(classInCharge, "classInCharge").ensureIsString();
         given(qualification, "qualification").ensureIsArray().ensureHasValue();
 
-        const teacher = this._teacher.find(t => t.id === id);
+        const teacher = this._teacher.find(t => t.id === id) as User;
         teacher.name = name;
         teacher.isAdmin = isAdmin;
         teacher.password = password;
@@ -108,9 +115,13 @@ export class LocalTeacherService implements TeacherService {
 
 
     public deleteTeacher(id: string): Promise<void> {
-        given(id, "id").ensureHasValue().ensureIsString();
-
-        const teacher = this._teacher.find(t => t.id === id);
+        
+        
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
+        const teacher = this._teacher.find(t => t.id === id) as User;
         teacher.isDeleted = true;
 
         return Promise.resolve();

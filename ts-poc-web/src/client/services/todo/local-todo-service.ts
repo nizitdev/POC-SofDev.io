@@ -38,9 +38,12 @@ export class LocalTodoService implements TodoService
     public getTodo(id: string): Promise<Todo>
     {
         
-        given(id, "id").ensureHasValue().ensureIsString();
-        
-        return Promise.resolve(this._todos.find(t => t.id === id));
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._todos.some(u => u.id === t), "Todo not found");
+
+        return Promise.resolve(this._todos.find(t => t.id === id) as Todo);
     }
     
     public createTodo(title: string, description: string): Promise<Todo>
@@ -62,11 +65,15 @@ export class LocalTodoService implements TodoService
     
     public updateTodo(id: string, title: string, description: string): Promise<void>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+         given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._todos.some(u => u.id === t), "Todo not found");
+
         given(title, "title").ensureHasValue().ensureIsString();
         given(description, "description").ensureIsString();
         
-        const todo = this._todos.find(t => t.id === id);
+        const todo = this._todos.find(t => t.id === id)  as Todo;
         todo.title = title;
         todo.description = description;
         
@@ -88,9 +95,12 @@ export class LocalTodoService implements TodoService
     
     public deleteTodo(id: string): Promise<void>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._todos.some(u => u.id === t), "Todo not found");
         
-        const todo = this._todos.find(t => t.id === id);
+        const todo = this._todos.find(t => t.id === id) as Todo;
         todo.isDeleted = true;
 
         return Promise.resolve();

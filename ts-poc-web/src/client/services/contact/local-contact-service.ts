@@ -39,9 +39,12 @@ export class LocalContactService implements ContactService
     
     public getContact(id: string): Promise<Contact>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._contact.some(u => u.id === t), "Contact not found");
         
-        return Promise.resolve(this._contact.find(t => t.id === id));
+        return Promise.resolve(this._contact.find(t => t.id === id)as Contact);
     }
     public searchContacts(text: string): Promise<ReadonlyArray<Contact>>
     {
@@ -68,12 +71,17 @@ export class LocalContactService implements ContactService
     
     public updateContact(id: string, firstName: string, lastName: string, phoneNo:  string, email: string): Promise<void>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+        
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._contact.some(u => u.id === t), "Contact not found");
+         
         given(firstName, "firstName").ensureHasValue().ensureIsString();
         given(lastName, "lastName").ensureIsString();
         given(phoneNo, "phoneNo").ensureIsString();
         given(email, "email").ensureIsString();
-        const contact = this._contact.find(t => t.id === id);
+        const contact = this._contact.find(t => t.id === id) as Contact;
         contact.firstName = firstName;
         contact.lastName = lastName;
         contact.phoneNo = phoneNo;
@@ -86,9 +94,12 @@ export class LocalContactService implements ContactService
     
     public deleteContact(id: string): Promise<void>
     {
-        given(id, "id").ensureHasValue().ensureIsString();
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._contact.some(u => u.id === t), "Contact not found");
         
-        const contact = this._contact.find(t => t.id === id);
+        const contact = this._contact.find(t => t.id === id) as Contact;
         contact.isDeleted = true;
 
         return Promise.resolve();

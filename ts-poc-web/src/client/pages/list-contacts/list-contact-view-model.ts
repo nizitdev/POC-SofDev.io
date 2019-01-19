@@ -14,11 +14,11 @@ export class ListContactViewModel extends PageViewModel
 {
     private readonly _contactService: ContactService;
     private _contacts:  ReadonlyArray<Contact>;
-    private _searchText: string;
+    private _searchText: string  | null;
     
     public get contacts(): ReadonlyArray<Contact> { return this._contacts; }
-    public get searchText(): string { return this._searchText; }
-    public set searchText(value: string) { this._searchText = value; }
+    public get searchText(): string |null { return this._searchText; }
+    public set searchText(value: string |null) { this._searchText = value; }
     
     public constructor(contactService: ContactService)
     {
@@ -26,12 +26,15 @@ export class ListContactViewModel extends PageViewModel
         given(contactService, "contactService").ensureHasValue().ensureIsObject();
         this._contactService = contactService;
         this._contacts = [];
+        this._searchText = "";
     }
     
     public search(): void
     {
-        
-        this._contactService.searchContacts(this.searchText)
+        given(this, "this")
+        .ensure(t => t.searchText != null, "search must be set");
+
+        this._contactService.searchContacts(this.searchText  as string)
             .then(t => this._contacts = t)
             .catch(e => console.log(e));
     }

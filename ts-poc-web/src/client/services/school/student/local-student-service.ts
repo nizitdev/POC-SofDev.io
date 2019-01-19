@@ -3,6 +3,7 @@ import { StudentService } from "../student/student-service";
 import { Student } from "../../../models/school/student";
 import { StudentMarkEntry } from "../../../models/school/studentMarkEntry";
 import { Subject } from "../../../models/school/subject";
+// import { User } from "../../../models/school/user";
 
 export class LocalStudentService implements StudentService {
     private readonly _student: Array<Student>;
@@ -72,15 +73,20 @@ export class LocalStudentService implements StudentService {
     }
     public getStudentMarkEntry(id: string): Promise<StudentMarkEntry> {
         
-        given(id, "id").ensureHasValue().ensureIsString();
-
-        return Promise.resolve(this._studentMarkEntry.find(t => t.student_id === id));
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._studentMarkEntry.some(u => u.id === t), "Student not found");
+        return Promise.resolve(this._studentMarkEntry.find(t => t.student_id === id) as StudentMarkEntry);
     }
     public getStudent(id: string): Promise<Student> {
       
-        given(id, "id").ensureHasValue().ensureIsString();
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._student.some(u => u.id === t), "Student not found");
 
-        return Promise.resolve(this._student.find(t => t.id === id));
+        return Promise.resolve(this._student.find(t => t.id === id) as Student);
     }
 
     public getStudents(): Promise<ReadonlyArray<Student>> {
@@ -106,12 +112,17 @@ export class LocalStudentService implements StudentService {
         return Promise.resolve(studentMarkSEntry);
     }
     public updateStudentMarkEntry(id: string, student_id: string, studentName: string, subject: string, mark: string): Promise<void> {
-        given(id, "id").ensureHasValue().ensureIsString();
+       
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._studentMarkEntry.some(u => u.id === t), "Student not found");
+
         given(studentName, "studentName").ensureHasValue().ensureIsString();
         given(subject, "subject").ensureIsString();
         given(mark, "mark").ensureHasValue().ensureIsString();
 
-        const studentMarkSEntry = this._studentMarkEntry.find(t => t.id === id);
+        const studentMarkSEntry = this._studentMarkEntry.find(t => t.id === id) as StudentMarkEntry ;
         studentMarkSEntry.studentName = studentName;
         studentMarkSEntry.subject = subject;
         studentMarkSEntry.mark = mark;
@@ -138,12 +149,17 @@ export class LocalStudentService implements StudentService {
     }
 
     public updateStudent(id: string, name: string, sex: string, division: string): Promise<void> {
-        given(id, "id").ensureHasValue().ensureIsString();
+       
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._student.some(u => u.id === t), "Student not found");
+
         given(name, "name").ensureHasValue().ensureIsString();
         given(sex, "sex").ensureIsString();
         given(division, "division").ensureHasValue().ensureIsString();
 
-        const student = this._student.find(t => t.id === id);
+        const student = this._student.find(t => t.id === id) as Student;
         student.name = name;
         student.sex = sex;
         student.division = division;
@@ -153,8 +169,12 @@ export class LocalStudentService implements StudentService {
 
 
     public deleteStudent(id: string): Promise<void> {
-        given(id, "id").ensureHasValue().ensureIsString();
-        const student = this._student.find(t => t.id === id);
+       
+        given(id, "id")
+        .ensureHasValue()
+        .ensureIsString()
+        .ensure(t => this._student.some(u => u.id === t), "Student not found");
+        const student = this._student.find(t => t.id === id) as Student;
         student.isDeleted = true;
 
         return Promise.resolve();

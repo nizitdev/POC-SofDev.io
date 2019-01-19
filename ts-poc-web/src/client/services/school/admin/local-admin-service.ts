@@ -41,8 +41,8 @@ export class LocalAdminService implements AdminService
                     isAdmin: true,
                     userName: "admin",
                     password: "admin", 
-                    classInCharge : null,
-                    qualification : null,
+                    classInCharge : "",
+                    qualification : [],
                     isDeleted: false
                 });
             }
@@ -54,11 +54,11 @@ export class LocalAdminService implements AdminService
                         userName: "Nivya",
                         password: "12345678", 
                         classInCharge : "x-a",
-                        qualification : null,
+                        qualification : [],
                         isDeleted: false
                     });
             }
-            }
+            }  
         
         
         this._user = users;
@@ -73,11 +73,13 @@ export class LocalAdminService implements AdminService
     }
      
     public login(userName: string, password: string): Promise<User> {
+        
+        
         given(userName, "userName").ensureHasValue().ensureIsString();
         given(password, "password").ensureHasValue().ensureIsString();
 
         let user = this._user.filter(t => t.userName === userName && t.password === password)[0];
-        return Promise.resolve(user);
+                 return Promise.resolve(user);
     }
  
     

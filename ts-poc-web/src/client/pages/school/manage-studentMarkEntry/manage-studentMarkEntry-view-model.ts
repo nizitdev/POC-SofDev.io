@@ -14,7 +14,7 @@ import { Subject } from "../../../models/school/subject";
 export class ManageStudentMarkViewModel extends PageViewModel {
 
     private readonly _studentService: StudentService;
-   // private readonly _navigationService: NavigationService;
+    // private readonly _navigationService: NavigationService;
     private _studentMarkEntry: ReadonlyArray<StudentMarkEntry>;
     public get studentMarkEntry(): ReadonlyArray<StudentMarkEntry> { return this._studentMarkEntry; }
     private _subjects: ReadonlyArray<Subject>;
@@ -47,7 +47,7 @@ export class ManageStudentMarkViewModel extends PageViewModel {
 
         given(studentService, "studentService").ensureHasValue().ensureIsObject();
         this._studentService = studentService;
-      
+        this._operation = "";
         this._subjects = [];
         this._studentMarkEntry = [];
         this._id = "";
@@ -58,42 +58,42 @@ export class ManageStudentMarkViewModel extends PageViewModel {
     }
 
     public save(): void {
-
-        
+debugger;
         const savePromise: Promise<any> = this._id
             ? this._studentService.updateStudentMarkEntry(this._id, this._studentName, this._subject, this._mark, this._student_id)
             : this._studentService.createStudentMarkEntry(this._student_id, this._studentName, this._subject, this._mark);
 
         savePromise
-        .then(() => this._studentService.getStudentMark(this.student_id)
-            .then(t => this._studentMarkEntry = t)
-            .catch(e => console.log(e))
+            .then(() => this._studentService.getStudentMark(this.student_id)
+                .then(t => this._studentMarkEntry = t)
+                .catch(e => console.log(e))
             )
-        .catch(e => console.log(e));
-              
+            .catch(e => console.log(e));
+debugger;
     }
 
 
     protected onEnter(id?: string): void {
- 
+
+        debugger;
         this._studentService.getSubjects()
-        .then(t => this._subjects = t)
-        .catch(e => console.log(e));
-        
-        this._studentService.getStudent(id)
-        .then(t => {
-            this._student_id = t.id,
-            this._studentName = t.name;
-             
-        })
-        .catch(e => console.log(e));
-         
-        this._studentService.getStudentMark(id)
+            .then(t => this._subjects = t)
+            .catch(e => console.log(e));
+
+        this._studentService.getStudent(id as string)
+            .then(t => {
+                this._student_id = t.id,
+                    this._studentName = t.name;
+
+            })
+            .catch(e => console.log(e));
+
+        this._studentService.getStudentMark(id as string)
             .then(t => this._studentMarkEntry = t)
             .catch(e => console.log(e));
-            this._operation = "Add";
+        this._operation = "Add";
         // if (markId && !markId.isEmptyOrWhiteSpace() ) {
-           
+
         //     // this._operation = "Update";
 
         //     // this._studentService.getStudentMarkEntry(markId)
@@ -110,7 +110,7 @@ export class ManageStudentMarkViewModel extends PageViewModel {
         // }
         // else {
         //     
-           
+
         // }
     }
 
