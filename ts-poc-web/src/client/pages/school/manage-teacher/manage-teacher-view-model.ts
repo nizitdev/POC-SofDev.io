@@ -33,14 +33,18 @@ export class ManageTeacherViewModel extends PageViewModel {
     private _isAdmin: boolean;
     private _classInCharge:  string ;
     private _qualification:  Array<string> | null;
-     
+     private _uploadedFiles:  [];
     public get operation(): string { return this._operation; }
-
+      
+     
     public get name(): string { return this._name; }
     public set name(value: string) { this._name = value; }
 
     public get fileUpload(): string { return this._fileUpload; }
     public set fileUpload(value: string) { this._fileUpload = value; }
+
+    public get uploadedFiles(): [] { return this._uploadedFiles; }
+    public set uploadedFiles(value: []) { this._uploadedFiles = value; }
 
     public get isAdmin(): boolean { return this._isAdmin; }
     public set isAdmin(value: boolean) { this._isAdmin = value; }
@@ -77,13 +81,15 @@ export class ManageTeacherViewModel extends PageViewModel {
         this._userName = "";
         this._classInCharge = "";
         this._qualification =  [];
+        this._uploadedFiles =  [];
+        
     }
 
     public save(): void {
       
-    //   let s = this._fileUpload;
-    //   debugger;
-    //   alert(s);
+      let s = this._fileUpload;
+      debugger;
+      alert(s);
        const savePromise: Promise<any> = this._id
             ? this._teacherService.updateTeacher(this._id, this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification as Array<string>)
             : this._teacherService.createTeacher(this._name, this._isAdmin, this._password, this._userName, this._classInCharge, this._qualification as Array<string>);
@@ -92,8 +98,32 @@ export class ManageTeacherViewModel extends PageViewModel {
             .then(() => this._navigationService.navigate(Routes.listTeachers, {}))
             .catch(e => console.log(e));
     }
+    onFileChange(event: any) {
+      // event.target.files[0].name
+    debugger;
+    let res = event.srcElement;
+    let files = res.files;
+    let fileData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+       fileData.append(files[i].name, files[i]);
+       
+    }
+    this._teacherService.upload(fileData);
+      // fileData.
+    // this.saveFile(fileData);
+   
+    }
+   // saveFile(formData: FormData) {
+        // upload data to the server
+         
 
-
+     //   this._teacherService.upload(formData)
+          // .then(x => {
+            // this._uploadedFiles = [].concat(x);
+           
+          // })
+        //  .catch(e => console.log(e));
+     // } 
     protected onEnter(id?: string): void {
         this._adminService.getDivisions()
             .then(t => this._divisions = t)

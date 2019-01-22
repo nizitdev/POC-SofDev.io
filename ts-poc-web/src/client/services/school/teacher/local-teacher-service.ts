@@ -126,4 +126,12 @@ export class LocalTeacherService implements TeacherService {
 
         return Promise.resolve();
     }
+     public upload(formData: FormData): Promise<void> {
+        debugger;
+        
+         alert(formData);  
+
+        return Promise.resolve();
+    }
+    
 }

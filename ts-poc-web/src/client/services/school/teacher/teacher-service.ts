@@ -7,4 +7,6 @@ export interface TeacherService {
     updateTeacher(id: string, name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string, qualification: Array<string>): Promise<void>;
     getQualification(): Promise<ReadonlyArray<Qualification>>;
     deleteTeacher(id: string): Promise<void>;
+
+    upload(formData: FormData): Promise<void>;
 }
