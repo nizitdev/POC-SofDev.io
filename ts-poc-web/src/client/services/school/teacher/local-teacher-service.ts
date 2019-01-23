@@ -56,17 +56,17 @@ export class LocalTeacherService implements TeacherService {
         return Promise.resolve(this._qualification);
     }
     public getTeacher(id: string): Promise<User> {
-        
+
         given(id, "id")
-        .ensureHasValue()
-        .ensureIsString()
-        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
+            .ensureHasValue()
+            .ensureIsString()
+            .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
         return Promise.resolve(this._teacher.find(t => t.id === id) as User);
     }
 
 
     public createTeacher(name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string, qualification: Array<string>): Promise<User> {
-        
+
         given(name, "name").ensureHasValue().ensureIsString();
         given(isAdmin, "isAdmin").ensureIsBoolean();
         given(password, "password").ensureHasValue().ensureIsString();
@@ -90,12 +90,12 @@ export class LocalTeacherService implements TeacherService {
     }
 
     public updateTeacher(id: string, name: string, isAdmin: boolean, password: string, userName: string, classInCharge: string, qualification: Array<string>): Promise<void> {
-      
-       
+
+
         given(id, "id")
-        .ensureHasValue()
-        .ensureIsString()
-        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
+            .ensureHasValue()
+            .ensureIsString()
+            .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
         given(name, "name").ensureHasValue().ensureIsString();
         given(isAdmin, "isAdmin").ensureIsBoolean();
         given(password, "password").ensureHasValue().ensureIsString();
@@ -115,23 +115,22 @@ export class LocalTeacherService implements TeacherService {
 
 
     public deleteTeacher(id: string): Promise<void> {
-        
-        
+
+
         given(id, "id")
-        .ensureHasValue()
-        .ensureIsString()
-        .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
+            .ensureHasValue()
+            .ensureIsString()
+            .ensure(t => this._teacher.some(u => u.id === t), "Teacher not found");
         const teacher = this._teacher.find(t => t.id === id) as User;
         teacher.isDeleted = true;
 
         return Promise.resolve();
     }
-     public upload(formData: FormData): Promise<void> {
-        debugger;
-        
-         alert(formData);  
+    public upload(formData: FormData): Promise<void> {
+
+        alert(formData);
 
         return Promise.resolve();
     }
-    
+
 }
